@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="dist/echarts-all.js"></script>
+    <script type="text/javascript" src="js/datepicker.js"></script>
+    <style type="text/css">
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body,
+    html {
+        height: 100%;
+    }
+    
+    body {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        background-color: #272123;
+    }
+    
+    select,
+    body,
+    input,
+    th,
+    td {
+        color: #fff;
+        font-family: Arial, "微软雅黑", "宋体", "黑体", font-size: 14px;
+    }
+    
+    .clearfix:after,
+    .clearfix:after,
+    .main:after,
+    .left:after,
+    .right:after,
+    dl:after,
+    dt:after,
+    dd:after,
+    ul:after,
+    li:after {
+        clear: both;
+        height: 0;
+        overflow: hidden;
+        display: block;
+        visibility: hidden;
+        content: ".";
+    }
+    
+    .main {
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        min-width: 1200px;
+    }
+    
+    .mainLeft,
+    .mainRight {
+        width: 50%;
+        float: left;
+    }
+    
+    .mainLeft .title {
+        margin: 30px 0 20px 30px;
+    }
+    
+    li {
+        list-style-type: none
+    }
+    
+    .mainLeft ul.title li.selectNenu {
+        padding: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        width: auto;
+        display: inline-block;
+        font-size: 16px;
+        position: relative;
+    }
+    
+    .mainLeft ul .title li .selectNenu em {
+        font-size: normal;
+        cursor: pointer;
+    }
+    
+    .mainLeft ul.title li.selectNenu span {
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 12px solid #fff;
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: middle;
+    }
+    
+    .selectNenu dl {
+        position: absolute;
+        line-height: 20px;
+        background: #121212;
+        padding: 10px;
+        text-align: center;
+        margin-top: 29px;
+        * margin-top: 29px;
+        z-index: 10;
+        min-width: 780px;
+        left: 0;
+        width: auto;
+        display: none;
+        z-index: 999;
+    }
+    
+    .selectNenu dl dd {
+        display: block;
+        width: 220px;
+        text-align: left;
+        float: left;
+        margin-right: 20px;
+        border-bottom: 1px dashed #777777;
+        padding: 0 5px;
+    }
+    
+    .selectNenu dl dd a {
+        line-height: 40px;
+        height: 40px;
+        font-size: 14px;
+        color: #fff;
+    }
+    
+    .selectNenu dl dd a:hover {
+        color: #f4a201;
+    }
+    
+    .mainLeft ul.title li {
+        float: left;
+    }
+    
+    .mainLeft ul.title li.label,
+    .insideTop ul.titlebox span.label {
+        color: #b70900;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 5px 10px;
+        font-size: 14px;
+        margin: 5px 0px 5px 10px;
+    }
+    
+    .mainLeft ul .date {
+        margin-left: 20px;
+    }
+    
+    .mainLeft ul.title li.date span {
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    
+    #inputDate {
+        border: none;
+        background-color: transparent;
+        line-height: 40px;
+        font-size: 14px;
+        height: 40px;
+        width: 120px;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    .mainLeft ul.info {
+        border-bottom: 1px solid #5b5b5b;
+        padding-bottom: 15px;
+    }
+    
+    .mainLeft ul.info img.pic {
+        float: left;
+        margin: 0 20px 0 0;
+        width: 40%;
+    }
+    
+    .mainLeft ul.info li .echarts1 {
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        display: inline-block;
+        float: left;
+        margin-left: 30px
+    }
+    
+    .mainLeft ul.info li {
+        margin-bottom: 15px;
+        display: inline-block;
+        width: 50%;
+    }
+    
+    .mainLeft ul.info li.star {
+        background: url(img/star.png) no-repeat 100px 0;
+        height: 30px;
+        line-height: 30px;
+    }
+    
+    .mainLeft ul.info li.star25 {
+        background-position: 70px -150px;
+    }
+    
+    .mainLeft ul.info dl {
+        float: left;
+    }
+    
+    .mainLeft ul.info dl.labelBox {
+        width: 350px;
+    }
+    .mainLeft ul.info dl.labelBox dd{
+    	float: left;
+    	width: 85px;
+    	height: 27px;
+    	line-height: 27px;
+    	padding-right: 20px;
+    	text-align: center;
+    	background-image: url(img/label.png);
+    	background-repeat: no-repeat;
+    	margin:10px;
+    	font-size: 14px;
+    }
+    .mainLeft ul.info dl.labelBox dd.style2{
+    	background-position: 0 -34px;
+    }
+    .mainLeft ul.info dl.labelBox dd.style1{
+    	background-position: 0 0;
+    }
+    .mainLeft ul.info dl.labelBox dd.style4{
+    	background-position: 0 -102px;
+    }
+    .mainRight li{
+    	position: relative;
+    }
+    .mainRight li.logo{
+    	text-align: right;
+    }
+	img{
+		border:0px;
+		vertical-align: middle;
+	}
+	/*地图中的样式*/
+	.mainRight .typeBox { right:20px; top:10px; color: white;}
+	.mainRight .typeBox li { display:inline-block; width:80px; text-align:center; line-height:30px; height:30px;  padding: 3px;}
+	.mainRight .typeBox li.type1 { background-color:#3591da;}
+	.mainRight .typeBox li.type2 { background-color:#f4a201;}
+	.mainRight .typeBox li.type3 { background-color:#1da8af;}
+	.mainRight .sizeBox { width:360px; height:29px; background-image:url(../images/bg_size.png);position:absolute; left: 30px; top:30px;}
+	.mainRight .sizeBox li { width:9px; height:29px; background-image:url(../images/bg_size2.png);position:absolute; left:0px; z-index:99; cursor: pointer;}
+	.mainRight .sizeBox li.hide { width:35px; height:39px; background-image:url(../images/blank.gif);position:absolute; z-index:99; cursor: pointer;}
+
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="mainLeft">
+            <ul class="title">
+                <li class="selectNenu">
+                    <dl id="selectCtt" style="display: none;">
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND09" cityname="深圳" screentype="商圈屏" lon="114.123942" lat="22.551881">深圳东门步行街金世界百货</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND02" cityname="广州" screentype="商圈屏" lon="113.321597" lat="23.130018">广州大道中南方都市报办公楼北墙体</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND03" cityname="广州" screentype="商圈屏" lon="113.329667" lat="23.124697">珠江新城广州国际金融中心</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND04" cityname="广州" screentype="商圈屏" lon="113.32889" lat="23.123853">珠江新城广州国际金融中心带状屏</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND05" cityname="广州" screentype="商圈屏" lon="113.321237" lat="23.142955">广州大道北红星美凯龙</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND06" cityname="广州" screentype="商圈屏" lon="113.341175" lat="23.138726">颐高数码广场</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND07" cityname="广州" screentype="商圈屏" lon="113.335234" lat="23.139503">外经贸大厦</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND08" cityname="广州" screentype="商圈屏" lon="113.272142" lat="23.13208">捷登都会</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND10" cityname="深圳" screentype="商圈屏" lon="113.929544" lat="22.529539">深圳南山新绿岛大厦
+</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND11" cityname="深圳" screentype="商圈屏" lon="114.124747" lat="22.545654">深圳市罗湖区金凯广场外墙体</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND12" cityname="深圳" screentype="商圈屏" lon="114.091528" lat="22.546101">北方大厦</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND13" cityname="佛山" screentype="商圈屏" lon="113.115488" lat="23.033126">佛山国际商业中心(ICC)</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND14" cityname="东莞" screentype="商圈屏" lon="113.748408" lat="23.02324">南城海雅
+</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND15" cityname="东莞" screentype="商圈屏" lon="113.93557" lat="22.936729">东莞大朗新世纪长盛广场外墙
+</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND16" cityname="东莞" screentype="商圈屏" lon="113.689886" lat="22.825779">东莞虎门柏景豪庭
+</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND17" cityname="珠海" screentype="商圈屏" lon="113.580962" lat="22.251434">珠海钰海环球金融中心</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND18" cityname="惠州" screentype="商圈屏" lon="114.420167" lat="23.081365">麦科特大道花边岭广场转盘绿地内</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND19" cityname="中山" screentype="商圈屏" lon="113.390651" lat="22.517617">中山市益华商圈核心区</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND20" cityname="中山" screentype="商圈屏" lon="113.397631" lat="22.526314">中山市兴中大厦</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND21" cityname="江门" screentype="商圈屏" lon="113.083753" lat="22.604134">江门市中泰莱大酒店</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND22" cityname="江门" screentype="商圈屏" lon="113.107022" lat="22.581277">江门市住建大厦</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND23" cityname="汕头" screentype="商圈屏" lon="116.73166" lat="23.383694">金书大厦</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND24" cityname="肇庆" screentype="商圈屏" lon="112.478968" lat="23.06129">星湖国际广场正门</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND25" cityname="清远" screentype="商圈屏" lon="113.061761" lat="23.687648">清远市政府广场西侧</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND26" cityname="潮州" screentype="商圈屏" lon="116.63187" lat="23.667344">汇侨大酒店</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND27" cityname="云浮" screentype="商圈屏" lon="112.052507" lat="22.937811">云浮东街口</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND28" cityname="湛江" screentype="商圈屏" lon="110.385212" lat="21.279948">湛江奥理德（广湛路口）
+</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND29" cityname="茂名" screentype="商圈屏" lon="110.924203" lat="21.669026">茂名明湖商场
+</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND30" cityname="阳江" screentype="商圈屏" lon="111.970354" lat="21.86258">阳江华港豪庭</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND31" cityname="揭阳" screentype="商圈屏" lon="116.472663" lat="23.537062">砲台收费站</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND32" cityname="汕尾" screentype="商圈屏" lon="115.372585" lat="22.783851">根德电器城</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND33" cityname="梅州" screentype="商圈屏" lon="116.086282" lat="24.283807">人民广场</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND34" cityname="韶关" screentype="商圈屏" lon="113.613114" lat="24.68842">马坝马鞍山</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND35" cityname="河源" screentype="商圈屏" lon="114.712184" lat="23.764567">河源凯旋城</a></dd>
+                        <dd style="text-align: left"><a href="#" onclick="switchover(this)" screenid="ND36" cityname="湛江" screentype="商圈屏" lon="110.407767" lat="21.21683">湛江鼎盛广场</a></dd>
+                    </dl>
+                    <em cityname="广州" screenid="ND01" lon="113.271333" lat="23.132591">
+				北京路步行街入口香港城外墙
+				</em>
+                    <span></span>
+                </li>
+                <li class="label screenType">商圈屏</li>
+                <li class="date">
+                    <span class="prevDate">◀</span>
+                    <input type="text" id="inputDate">
+                    <span class="prevDate">▶</span>
+                </li>
+            </ul>
+            <ul class="info">
+                <img class="pic screenPath" src="img/ND01.jpg">
+                <li>
+                    <img class="weathImg" width="60" style="float:left" src="">
+                    <dl style="float:left;">
+                        <dd class="t"></dd>
+                        <dd class="b"></dd>
+                    </dl>
+                    <div class="echarts1" id="echarts1"></div>
+                </li>
+                <li class="star star25">综合指数：</li>
+                <li>
+                    <dl class="labelBox">
+                        <dd class="style5">土豪屏</dd>
+                        <dd class="style2">鲜肉屏</dd>
+                        <dd class="style1">剁手党</dd>
+                        <dd class="style4">京东</dd>
+                        <dd class="style5">网络支付</dd>
+                        <dd class="style4">娱乐</dd>
+                    </dl>
+                </li>
+            </ul>
+            <div id="echarts2" style="width:100%;height:340px;display:inline-block"></div>
+            <input type="" name=""/>
+            <div></div>
+        </div>
+        <div class="mainRight">
+        	<ul>
+        		<li class="logo"><img src="img/logo.png"></li>
+        		<li><div id="map" style="width: 100%;height:643.5px;-webkit-transition: all 0.5s ease-in-out;transition: all 0.5s ease-in-out;"></div></li>
+        	</ul>
+        </div>
+    </div>
+</body>
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0"></script>   -->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0GWg3GKXm75FKLjVBxR30cUE"></script>
+<script type="text/javascript">
+// 百度地图API功能  
+// var map = new BMap.Map("map");  
+var map = new BMap.Map('map', {enableMapClick:false, minZoom: 16, maxZoom: 19});
+var point = new BMap.Point(113.276133,23.131791);
+map.centerAndZoom( point,18);  
+
+// 将标注添加到地图中  
+//marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画  
+//marker.enableDragging();  
+map.setMapType(BMAP_PERSPECTIVE_MAP);     //修改地图类型为3D地图  
+map.setCurrentCity("广州");  //设置当前城市  
+map.disableDoubleClickZoom();	//开启滚轮缩放功能
+map.disablePinchToZoom();	 //关闭双击放大功能
+// 定义一个控件类,即function
+function MyControl(anchor, offset, html){
+  // 默认停靠位置和偏移量
+  this.defaultAnchor = anchor || BMAP_ANCHOR_TOP_LEFT;
+  this.defaultOffset = offset || new BMap.Size(0, 0);
+  this.defaultHtml = html || "";
+}
+
+// 通过JavaScript的prototype属性继承于BMap.Control
+MyControl.prototype = new BMap.Control();
+
+// 自定义控件必须实现自己的initialize方法,并且将控件的DOM元素返回
+// 在本方法中创建个div元素作为控件的容器,并将其添加到地图容器中
+MyControl.prototype.initialize = function(map){
+  // 创建一个DOM元素
+  var div = document.createElement("div");
+  div.innerHTML = this.defaultHtml;
+  // 添加DOM元素到地图中
+  map.getContainer().appendChild(div);
+  // 将DOM元素返回
+  return div;
+}
+// 创建控件
+var radiusControl = new MyControl();
+radiusControl.defaultHtml = "<div class='sizeBox'><ul>" + 
+  		"<li name='radiusDrap' radius='500' style='left: 0px;' title='500'></li>" +
+  		"<li name='radiusDrap' radius='1000' class='hide' style='left: 115px;' title='1000'></li>" +
+  		"<li name='radiusDrap' radius='1500' class='hide' style='left: 235px;' title='1500'></li>" +
+  		"<li name='radiusDrap' radius='2000' class='hide' style='left: 355px;' title='2000'></li>" +
+  		"</ul></div>" +
+  		"";
+// 添加到地图当中
+map.addControl(radiusControl);
+// 创建控件
+var textControl = new MyControl(BMAP_ANCHOR_TOP_RIGHT, new BMap.Size(0, 25));
+textControl.defaultHtml = "<div class='typeBox'>" + 
+  		"<ul><li class='type1'>商业中心</li><li class='type2'>公共设施</li><li class='type3'>社区</li></ul>" +
+  		"</div>" +
+  		"";
+// 添加到地图当中
+map.addControl(textControl);
+
+//
+var myChart = echarts.init(document.getElementById('echarts1'));
+var dataStyle = {
+    normal: {
+        label: {
+            show: false
+        },
+        labelLine: {
+            show: false
+        }
+    }
+};
+var placeHolderStyle = {
+    normal: {
+        color: 'rgba(0,0,0,0)',
+        label: {
+            show: false
+        },
+        labelLine: {
+            show: false
+        }
+    },
+    emphasis: {
+        color: 'rgba(0,0,0,0)'
+    }
+};
+var option = {
+    title: {
+        text: '87',
+        subtext: '综合指数',
+        x: 'center',
+        y: 'center',
+        itemGap: 5,
+        textStyle: {
+            color: 'rgba(30,144,255,0.8)',
+            fontFamily: '微软雅黑',
+            fontSize: 40,
+            fontWeight: 'bolder'
+        }
+    },
+    series: [{
+        name: '',
+        type: 'pie',
+        clockWise: false,
+        radius: [50, 40],
+        itemStyle: dataStyle,
+        data: [{
+            value: 68,
+            name: '综合指数'
+        }, {
+            value: 32,
+            name: 'invisible',
+            itemStyle: placeHolderStyle
+        }]
+    }]
+};
+myChart.setOption(option);
+var myChart2 = echarts.init(document.getElementById('echarts2'));
+var option2 = {
+    tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'center',
+                        max: 1548
+                    }
+                }
+            },
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius : ['50%', '70%'],
+            itemStyle : {
+                normal : {
+                    label : {
+                        show : false
+                    },
+                    labelLine : {
+                        show : false
+                    }
+                },
+                emphasis : {
+                    label : {
+                        show : true,
+                        position : 'center',
+                        textStyle : {
+                            fontSize : '30',
+                            fontWeight : 'bold'
+                        }
+                    }
+                }
+            },
+            data:[
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+                {value:135, name:'视频广告'},
+                {value:1548, name:'搜索引擎'}
+            ]
+        }
+    ]
+};
+myChart2.setOption(option2);
+//创建标注
+var myIcon = new BMap.Icon("./img/i1.png", new BMap.Size(300, 157));
+var marker = new BMap.Marker(point, {icon: myIcon}); 
+map.addOverlay(marker);
+var point2 = new BMap.Point(113.276153,23.131821);
+var myIcon2 = new BMap.Icon("./img/i2.png", new BMap.Size(300, 157));
+var marker2 = new BMap.Marker(point2, {
+    icon: myIcon2
+}); 
+// 创建标注    
+map.addOverlay(marker2);
+
+var circle = new BMap.Circle(new BMap.Point(113.276153,23.131821),150,{strokeColor:"white",strokeWeight:3, StrokeOpacity:0.5,strokeStyle:'dashed',fillOpacity:0.01});
+map.addOverlay(circle);
+
+//
+jQuery(".selectNenu").hover(function(){
+	jQuery("#selectCtt").stop().show();
+},function(){
+	jQuery("#selectCtt").stop().hide();
+});
+
+$(function(){
+var mydate = new Date();
+	var str = mydate.getFullYear() + "年";
+	if(mydate.getMonth() + 1 >9){
+		str += (mydate.getMonth()+1) + "月";
+	}else{
+		str += "0"+(mydate.getMonth()+1) + "月";
+	}
+	if(mydate.getDate() >9){
+		str += mydate.getDate() + "日";
+	}else{
+		str += "0"+mydate.getDate() + "日";
+	}
+
+$('#inputDate').val(str);
+$('#inputDate').DatePicker({
+		format:'Y年m月d日',
+		date: $('#inputDate').val(),
+		current: $('#inputDate').val(),
+		starts: 1,
+		position: 'right',
+		onBeforeShow: function(){
+			$('#inputDate').DatePickerSetDate($('#inputDate').val(), true);
+		},
+		onChange: function(formated, dates){
+			$('#inputDate').val(formated);
+			//if ($('#closeOnSelect input').attr('checked')) {
+			//	$('#inputDate').DatePickerHide();
+			//}
+		}
+	});
+});
+</script>
+
+</html>

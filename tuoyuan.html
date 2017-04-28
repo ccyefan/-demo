@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<style type="text/css">
+		.cycle_point {
+		    background-image: url(img/cycle_1.png);
+		    position: absolute;
+		    left: 133px;
+		    top: 196px;
+		    height: 52px;
+		    width: 52px;
+		    background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+<div class="cycle_point" style="width: 52px;height: 52px;"></div>
+</body>
+<script type="text/javascript">
+	//椭圆的坐标的公式 x=acosθ ,y=bsinθ
+	var speed=1;
+	function funAnimat(){
+		speed+=2;
+		var hudu=speed*Math.PI/180;
+		$(".cycle_point").css({
+			'left': Math.sin(hudu)*350+350,
+			'top':Math.cos(hudu)*160+160,
+			'z-index':10,
+			'width':52,
+			'height':52
+		});
+
+
+	}
+	jQuery(document).ready(function($) {
+		setInterval(funAnimat, 100);
+	});
+</script>
+</html>

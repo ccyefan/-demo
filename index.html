@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+	<script src="js/jquery.slimscroll.min.js"></script>
+</head>
+<style type="text/css">
+	body{
+		font-size: 14px;
+		color: #797979;
+		background: #444A69 url(img/bg.jpg) no-repeat top center;
+		font-family: 'Microsoft YaHei';
+	}
+
+	#divWrap{
+		width: 100% ;
+		min-height: 100%;
+		position: absolute;
+	}
+	.divHorizontalLine{
+		width: 100%;
+		height: 2px;
+		background-color: #BBB;
+	}
+	#divFooterContent{
+		text-align: center;
+	}
+	#Header{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 54px;
+		background: url(img/navigate_backgroud.png) repeat;
+		background-position: 0px 0px;
+		box-shadow: 0px 0px 4px #999;
+	}
+	#NativeMenu{
+		line-height: 40px;
+		color: #FFFFFF;
+		position: absolute;
+		right: 300px;
+		top: 0px;
+	}
+	.divNavigateMenuStyleActive {
+	    height: 40x;
+	    line-height: 54px;
+	    font-size: 16px;
+	    /* font-weight: bold; */
+	    display: inline-block;
+	    text-align: center;
+	    /* color: #02F3F8; */
+	    /* border-bottom: 4px solid #DA251E; */
+	    /* border-bottom: 4px solid #02F3F8; */
+	    background: url(img/choosed_backgroud.png) no-repeat 0px -2px;
+	}
+	.divNavigateMenuStyle{
+		height: 40x;
+		line-height: 54px;
+		font-size: 16px;
+		 /*font-weight*/: bold; 
+		display: inline-block;
+		text-align: center;
+	}
+	.divNavigateMenuStyle:hover {
+	    cursor: pointer;
+	    line-height: 54px;
+	    /* color: #02F3F8; */
+	    /* border-bottom: 4px solid #DA251E; */
+	    /* border-bottom: 4px solid; */
+	    background: url(img/choosed_backgroud.png) no-repeat 0px -2px;
+	}
+	.userinfobar{
+		width: 150px;
+		height: 54px;
+		position: absolute;
+		top: 3px;
+		right: -230px;
+		font-size: 14px;
+		text-align: left;
+		line-height: 50px;
+		overflow: visible;
+	}
+	.userinfobar a {
+	    top: 15px;
+	    font-size: 14px;
+	    text-align: left;
+	    margin-left: 40px;
+	    line-height: 50px;
+	    overflow: visible;
+	    color: #FFFFFF;
+	}
+	a#showLoginDiv {
+	    top: 15px;
+	    font-size: 14px;
+	    text-align: left;
+	    margin-left: 40px;
+	    line-height: 50px;
+	    overflow: visible;
+	    color: #FFFFFF;
+	}
+	#divPageBody{
+		width: 100%;
+	    margin-top: 54px;	
+	}
+	#divWithoutMenu {
+	    width: 100%;
+	    background: #9H9H9J;
+	    border: 0px solid #DDD;
+	    overflow: hidden;
+	}
+	/*#section0,
+	#section1{
+		background-size: cover;
+	}
+	#section0{
+		background-image: url(img/index_bg0.jpg);
+		padding: 6% 0 0 0;
+	}
+	#section1{
+		background-image: url(img/index_bg1.jpg);
+		padding: 6% 0 0 0;
+	}
+	#section2{
+		background-image: url(img/index_bg1.jpg);
+		padding: 6% 0 0 0;
+	}*/
+	.inner {
+	    position: relative;
+	    margin: 0 auto;
+	    width: 1200px;
+	    height: 100%;
+	    left: 0;
+	    top: 0;
+	}
+	.next-page {
+	    position: absolute;
+	    left: 50%;
+	    bottom: 6.52%;
+	    margin-left: -16px;
+	    z-index: 50;
+	    cursor: pointer;
+	    display: block;
+	}	
+	.next-page .arrow {
+	    display: block;
+	    margin-top: -4px;
+	    width: 42px;
+	    height: 42px;
+	    background: url(img/index_down.png) no-repeat;
+	}
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+		padding:0;
+	}
+
+
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	#section0,
+	#section1{
+		background-size: cover;
+	}
+
+	/* Defining each section background and styles
+	* --------------------------------------- */
+	#section0{
+		background-image: url(img/index_bg0.jpg);
+		padding: 6% 0 0 0;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='img/index_bg0.jpg',
+    sizingMethod='scale');
+	}
+	#section1{
+		background-image: url(img/index_bg1.jpg);
+		padding: 6% 0 0 0;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='img/index_bg1.jpg',
+    sizingMethod='scale');
+	}
+	#section2{
+		background-image: url(img/index_bg1.jpg);
+		padding: 6% 0 0 0;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src='img/index_bg1.jpg',
+    sizingMethod='scale');
+	}
+	#section3 h1{
+		color: #000;
+	}
+	/* 首页第三屏页面的样式 start*/
+	#container{
+		height: 477px;
+		margin: 0 auto;
+		width:960;
+		overflow: hidden;
+		position: relative;
+	}
+	#container div {
+		position: absolute;
+		background-color: blue;
+		left: 0;
+		width: 720px;
+		height: 100%;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+	}
+	
+	/* 首页第三屏页面的样式 end*/
+	.datas {
+	    position: absolute;
+	    top: 10%;
+	    left: 0;
+	    width: 100%;
+	    height: 80%;
+	}
+	.overview-title {
+	    margin: 0 auto;
+	    width: 492px;
+	    height: 129px;
+	    background: url(img/index_logo.png) no-repeat;
+	    text-indent: -9999px;
+	    overflow: hidden;
+	}
+	ul {
+	    list-style: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	.data-list li {
+	    position: absolute;
+	    color: #fff;
+	}
+	.data-list .ctn {
+	    position: absolute;
+	    left: 50%;
+	    bottom: 100%;
+	    margin: 0 0 15px -175px;
+	    width: 350px;
+	    text-align: center;
+	    font-size: 16px;
+	}
+	.data-list .po1 {
+	    left: 166px;
+	    top: 21%;
+	}
+	.data-list .po2 {
+
+	    left: 236px;
+	    top: 45%;
+	}
+	.data-list .po3 {
+	    left: 406px;
+	    top: 69%;
+	}
+	.data-list .po4 {
+	    left: 506px;
+	    top: 41%;
+	}
+	.data-list .po5 {
+	    left: 602px;
+	    top: 82%;
+	}
+	.data-list .po6 {
+	    left: 698px;
+	    top: 41%;
+	}
+	.data-list .po7 {
+	    left: 798px;
+	    top: 69%;
+	}
+	.data-list .po8 {
+	    left: 968px;
+	    top: 45%;
+	}
+	.data-list .po9 {
+	    left: 1038px;
+	    top: 21%;
+	}
+	.data-list .dot {
+	    position: relative;
+	    display: block;
+	    width: 12px;
+	    height: 12px;
+	    background: url(img/data_point_ico.png) no-repeat;
+	    z-index: 2;
+	}
+	.data-list .ctn em {
+	    font-weight: bold;
+	    font-size: 24px;
+	    color: #02F3F8;
+	    font-style: normal;
+	}
+	.data-list .ctn p{
+		font-weight: normal;
+		font-size: 16px;
+	}
+	/*第二页*/
+	.inner {
+	    position: relative;
+	    margin: 0 auto;
+	    width: 1200px;
+	    height: 100%;
+	    left: 0;
+	    top: 0;
+	}
+	#section1 > .inner {
+	    margin-top: -240px;
+	    padding: 40px;
+	    height: 570px;
+	    position: absolute;
+	    left: 50%;
+	    top: 57%;
+	    margin: -284px 0 0 -600px;
+	}
+	#section1 .moverbg {
+	    background: url(img/functionlist_bg.png) no-repeat;
+	    width: 1002px;
+	    height: 112px;
+	    margin: 0 auto;
+	    position: relative;
+	    text-align: center;
+	    font-size: 30px;
+	    font-weight: bold;
+	    line-height: 36px;
+	    overflow: visible;
+	}
+	#section1 .moverbg:hover {
+	    background: url(img/functionlist_bg_hover.png) no-repeat;
+	}
+	.menu {
+	    margin: 0;
+	    padding: 2px;
+	    border-width: 1px;
+	    border-style: solid;
+	    overflow: hidden;
+	    border-color: #ddd;
+	    color: #444;
+	}
+	.moverbg .menu {
+	    left: 25px;
+	    top: 20px;
+	    width: 60px;
+	    height: 65px;
+	    position: absolute;
+	    background: none;
+	    border: hidden;
+	    text-align: center;
+	}
+	.ability .menu .ico {
+	    width: 40px;
+	    height: 40px;
+	    background: url(img/ability.png) no-repeat;
+	    margin: 0 auto;
+	}
+	.ability .menu .ico2 {
+	    width: 40px;
+	    height: 40px;
+	    background: url(img/product.png) no-repeat;
+	    margin: 0 auto;
+	}
+	.ability:hover .menu .ico2 {
+		background: url(img/product_hover.png) no-repeat;
+	}
+	.ability .menu .ico3 {
+	    width: 40px;
+	    height: 40px;
+	    background: url(img/topics.png) no-repeat;
+	    margin: 0 auto;
+	}
+	.ability:hover .menu .ico3 {
+		background: url(img/topics_hover.png) no-repeat;
+	}
+	.ability .menu .ico4 {
+	    width: 40px;
+	    height: 40px;
+	    background: url(img/case.png) no-repeat;
+	    margin: 0 auto;
+	}
+	.ability:hover .menu .ico4 {
+		background: url(img/case_hover.png) no-repeat;
+	}
+	.moverbg .menu .name {
+	    font-size: 18px;
+	    font-weight: normal;
+	    color: #02F3F8;
+	    margin: 5px auto;
+	    line-height: 18px;
+	}
+	.moverbg:hover .menu .name {
+	    color: #FAFD03;
+	}
+	.ability:hover .menu .ico {
+	    background: url(img/ability_hover.png) no-repeat;
+	}
+	ul {
+	    list-style: none;
+	    margin: 0;
+	    padding: 0;
+	}
+	.moverbg .ul1 {
+	    position: relative;
+	    left: 160px;
+	    top: 22px;
+	}
+	.moverbg .ul1 li {
+	    float: left;
+	    width: 160px;
+	    height: 36px;
+	    display: inline;
+	    margin-left: 10px;
+	    margin-top: 10px;
+	    overflow: hidden;
+	}
+	.moverbg .ul1 li a {
+	    display: inline-block;
+	}
+	#section1 a {
+	    text-decoration: none;
+	}
+	A {
+	    font-size: 12px;
+	    text-decoration: none;
+	    cursor: pointer;
+	}
+	p {
+	    font-size: 2em;
+	}
+	.tableable-cell {
+	    display: table-cell;
+	    font-weight: normal;
+	    vertical-align: middle;
+	    line-height: 1.5;
+	    color: #fff;
+	    text-decoration: none;
+	}
+	.tableable-cell:hover {
+	    color: #FAFD03;
+	}
+	.moverbg .more {
+	    width: 52px;
+	    height: 8px;
+	    display: block;
+	    position: absolute;
+	    right: 80px;
+	    bottom: 30px;
+	    background: url(img/more.png) no-repeat;
+	}
+	.moverbg .more:hover {
+	    background: url(img/more_hover.png) no-repeat;
+	}
+	.inner {
+	    position: relative;
+	    margin: 0 auto;
+	    width: 1200px;
+	    height: 100%;
+	    left: 0;
+	    top: 0;
+	}
+	#section2 > .inner {
+	    padding: 40px;
+	    height: 570px;
+	    position: absolute;
+	    left: 50%;
+	    top: 57%;
+	    margin: -284px 0 0 -600px;
+	}
+	#openadvert {
+	    position: fixed;
+	    width: 100%;
+	    left: -168px;
+	    bottom: 0;
+	    z-index: 10;
+	}
+	#dise2 {
+	    position: absolute;
+	    left: 0;
+	    bottom: 0;
+	    z-index: 10;
+	}
+	#dise1{
+	    position: absolute;
+	    left: 0;
+	    bottom: 0;
+	    z-index: 10;
+	}
+	#guanzhu {
+	    position: absolute;
+	    left: 0;
+	    bottom: 0;
+	    z-index: 10;
+	}
+	#open {
+	    position: absolute;
+	    left: 140px;
+	    bottom: 61px;
+	    z-index: 10;
+	}
+	#closeadvert {
+	    position: fixed;
+	    width: 100%;
+	    z-index: 10;
+	    /*left: 0;*/
+	    bottom: 0;
+	}
+	#code{
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	#close{
+		position: absolute;
+		left: 220px;
+		bottom:110px;
+		z-index:10;
+	}
+	.ship {
+	    position: fixed;
+	    top: 40%;
+	    left: 10px;
+	    width: 28px;
+	    height: 18px;
+	    background: url("img/ship.png") no-repeat;
+	    z-index: 2;
+	}
+</style>
+<body>
+<div id="divWrap">
+	<div id="Header">
+		<div id="divHeaderOperator"></div>
+	</div>
+	<div id="NativeMenu">
+		<div id="divNavigateMenuBar" style="white-space: nowrap;">
+			<span style="position: relative; width: 125px;" class="divNavigateMenuStyleActive">首页</span>
+			<span style="position: relative; width: 125px;" class="divNavigateMenuStyle" 
+				onmouseout="hideChildMenu('div1');" onmouseover="showChildMenu('div1');">大数据能力
+				<div id="div1" style="width: 125px; position: absolute; z-index: 1000; display: none; background: rgb(2, 57, 138);">
+					<ul><li><span>数据范围</span></li><li><span>数据能力</span></li><li><span>模型能力</span></li><li><span>计算和存储</span></li></ul>
+				</div>
+			</span>
+			<span style="position: relative; width: 125px;" class="divNavigateMenuStyle"
+				onmouseout="hideChildMenu('div2');" onmouseover="showChildMenu('div2');">大数据产品
+				<div id="div2" style="width: 125px; position: absolute; z-index: 1000; display: none; background: rgb(2, 57, 138);">
+					<ul><li><span>沃·指数</span></li><li><span>用户画像</span></li><li><span>沃·风云榜</span></li><li><span>联通慧眼</span></li></ul>
+				</div>
+			</span>
+			<span style="position: relative; width: 125px;" class="divNavigateMenuStyle" 
+				onmouseout="hideChildMenu('div3');" onmouseover="showChildMenu('div3');">数据分析专题
+				<div id="div3" style="width: 125px; position: absolute; z-index: 1000; display: none; background: rgb(2, 57, 138);">
+					<ul><li><span>全部专题</span></li><li><span>用户识别</span></li><li><span>预测分析</span></li><li><span>业务分析</span></li><li><span>特别专题</span></li></ul>
+				</div>
+			</span>
+			<div class="userinfobar"><a id="showLoginDiv" href="javascript:;">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a id="bdxRegisterAction" href="javascript:;" style="margin-left: -5px">注册</a></div>
+		</div>
+	</div>
+	<div id="divPageBody" style="min-height:525px">
+		<div id="divWithoutMenu" >
+			<div id="fullpage" style="margin-top: -45px ;">
+				<div id="section0" class="section">0
+					<div class="inner">	
+						<div class="datas">
+							<div class="overview-title"></div>
+							<ul class="data-list">
+								<li class="po1">
+									<div class="ctn">
+                        				<em><span id="appData">154,175</span>GB+</em>
+                        				<p>今日手机APP使用流量</p>
+                    				</div>
+                    				<span class="s">
+                    					<i class="dot"></i>
+                    				</span>
+								</li>
+								<li class="po2">
+				                    <div class="ctn">
+				                        <em><span id="locationData">222,802</span>万条</em>
+				                        <p>今日位置数据</p>
+				                    </div>
+										<span class="s">
+											<i class="dot"></i>
+										</span>
+				                </li>
+				                <li class="po3">
+	                                <div class="ctn">
+	                                    <em><span id="dpiData">1,349,410</span>万条</em>
+	                                    <p>今日手机上网DPI记录数</p>
+	                                </div>
+	            						<span class="s">
+	            							<i class="dot"></i>
+	            						</span>
+	                            </li>
+	                            <li class="po4">
+                                    <div class="ctn">
+                                        <em>7000个+</em>
+                                        <p>用户标签</p>
+                                    </div>
+                						<span class="light s">
+                							<i class="dot"></i>
+                						</span>
+                                </li>
+                                <li class="po5">
+                                    <div class="ctn">
+                                        <em>6000万+</em>
+                                        <p>真实用户数</p>
+                                    </div>
+                						<span class="light s">
+                							<i class="dot"></i>
+                						</span>
+                                </li>
+                                <li class="po6">
+                                    <div class="ctn">
+                                        <em><span id="telephoneData">9,398</span>万分钟+</em>
+                                        <p>今日通话量</p>
+                                    </div>
+                						<span class="light s">
+                							<i class="dot"></i>
+                						</span>
+                                </li>
+                                <li class="po7">
+                                    <div class="ctn">
+                                        <em>2700万户+</em>
+                                        <p>异网交际圈</p>
+                                    </div>
+                						<span class="s">
+                							<i class="dot"></i>
+                						</span>
+                                </li>
+                                <li class="po8">
+                                    <div class="ctn">
+                                        <em>30万家+</em>
+                                        <p>实体渠道</p>
+                                    </div>
+                						<span class="light s">
+                							<i class="dot"></i>
+                						</span>
+                                </li>
+                                <li class="po9">
+	                                <div class="ctn">
+	                                    <em><span id="broadbandData">2,040,807</span>万条+</em>
+	                                    <p>今日宽带访问记录</p>
+	                                </div>
+	            						<span class="s">
+	            							<i class="dot"></i>
+	            						</span>
+	                            </li>
+							</ul>
+						</div>
+						<span class="next-page" onclick="moveSectionDown();">
+							<i class="arrow"></i>
+						</span>
+					</div>
+				</div>
+				<div id="section1" class="section">
+					<div class="inner">
+						<div class="ability moverbg">
+							<div class="menu">
+								<div class="ico"></div><div class="name">能力</div>
+							</div>
+							<ul class="ul1">
+								<li><a href="#"><p class="tableable-cell">数据范围</p></a></li>
+								<li><a href="#"><p class="tableable-cell">数据能力</p></a></li>
+								<li><a href="#"><p class="tableable-cell">计算和存储</p></a></li>
+								<li><a href="#"><p class="tableable-cell">模型能力</p></a></li>
+							</ul>
+						</div>
+						<div class="ability moverbg">
+							<div class="menu">
+								<div class="ico2"></div><div class="name">产品</div>
+							</div>
+							<ul class="ul1">
+								<li><a href="#"><p class="tableable-cell">沃·指数</p></a></li>
+								<li><a href="#"><p class="tableable-cell">用户360画像</p></a></li>
+								<li><a href="#"><p class="tableable-cell">沃·风云榜</p></a></li>
+								<li><a href="#"><p class="tableable-cell">联通慧眼</p></a></li>
+							</ul>
+							<a class="more"></a>
+						</div>
+						<div class="ability moverbg">
+							<div class="menu">
+								<div class="ico3"></div><div class="name">专题</div>
+							</div>
+							<ul class="ul1">
+								<li><a href="#"><p class="tableable-cell">厂园用户分析</p></a></li>
+								<li><a href="#"><p class="tableable-cell">用户换机专题</p></a></li>
+								<li><a href="#"><p class="tableable-cell">国庆旅游专题</p></a></li>
+								<li><a href="#"><p class="tableable-cell">春节双返营销</p></a></li>
+							</ul>
+							<a class="more"></a>
+						</div>
+						<div class="ability moverbg">
+							<div class="menu">
+								<div class="ico4"></div><div class="name">案例</div>
+							</div>
+							<ul class="ul1">
+								<li><a href="#"><p class="tableable-cell">户外媒体广告</p></a></li>
+								<li><a href="#"><p class="tableable-cell">用户流失预测</p></a></li>
+								<li><a href="#"><p class="tableable-cell">真实性研究</p></a></li>
+								<li><a href="#"><p class="tableable-cell">精准营销</p></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="section2" class="section">
+					<div class="inner">
+						<div id="container" style="width: 960px;">
+							<div id="1" style="left: 0px;">
+								<a><img src="img/zhishu.png" /></a>
+							</div>
+							<div id="2" style="left: 720px;">
+								<a><img src="img/huiyan.png" /></a>
+							</div>
+							<div id="3" style="left: 841px;">
+								<a><img src="img/fengyun.png" /></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 广告弹出框 -->
+			<div id="openadvert" style="left: 0px">
+				<div id="dise2"><img src="img/bottom1.png"/></div>
+				<div id="guanzhu"><img src="img/scan.png"/></div>
+				<div id="open"><a href="javascript:void(0)" id="openbtn"><img src="img/open.png"/></a></div>
+			</div>
+			<div id="closeadvert" style="left: -1304px">
+				<div id="dise1"><img src="img/bottom.png" /></div>
+				<div id="code"><a><img src="img/code.png"/></a></div>
+				<div id="close"><a href="javascript:void(0)" id="closebtn"><img src="img/close.png" /></a></div>
+			</div>
+			<div class="ship"></div>
+		</div>
+	</div>
+	<div id="divFooter">
+		<div class="divHorizontalLine"></div>
+		<div id="divFooterContent">
+			中国联通  ©2014~2020 | Privacy Poilcy
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$("#fullpage").fullpage({
+			verticalCentered: false
+		});
+	});
+	function moveSectionDown() {
+			$('#fullpage').fullpage.moveSectionDown();
+	}
+	//到第一个区域
+	var a=document.getElementById("1")
+	a.onmouseover=function(){
+		jQuery("#2").animate({left:'720px'},300,"swing");
+		jQuery("#3").animate({left:'841px'},300,"swing");
+	}
+	//到第二个区域
+	var b=document.getElementById("2")
+	b.onmouseover=function(){
+		jQuery("#2").animate({left:'120px'},300,"swing");
+		jQuery("#3").animate({left:'841px'},300,"swing");
+	}
+	//到第三个区域
+	var c=document.getElementById("3")
+	c.onmouseover=function(){
+		jQuery("#2").animate({left:'120px'},300,"swing");
+		jQuery("#3").animate({left:'240px'},300,"swing");
+	}
+	//广告条
+	var openwidth= -jQuery("#openadvert").width();
+	var closewidth= -jQuery("#closeadvert").width();
+	jQuery("#openbtn").click(function(){
+		// document.getElementById("openadvert").style.left=openwidth;
+		jQuery("#openadvert").animate({left:openwidth},700);
+		jQuery("#closeadvert").animate({left:closewidth-1},100).delay().
+		animate({left:'40px'},500,'swing').delay().
+		animate({left:'0px'},'normal','swing');
+	});
+	jQuery("#closebtn").click(function(){
+		jQuery("#closeadvert").animate({left:closewidth},700,"swing");
+
+		jQuery("#openadvert").animate({left:'-169px'},100,"swing").delay(700).
+		animate({left:'40px'},"fast","swing").delay(50).
+		animate({left:'0px'},"normal","swing");
+	});
+
+	//导航
+	function showChildMenu(divId){
+		document.getElementById(divId).style.display='block';
+	}
+	function hideChildMenu(divId){
+		document.getElementById(divId).style.display='none';
+	}
+
+</script>
+
+</body>
+</html>

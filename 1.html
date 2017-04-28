@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="js/jquery.min.js"></script>
+    <script src="layer/layer.min.js"></script>
+    <style type="text/css">
+    body {
+        font-size: 14px;
+        color: #797979;
+        background: #444A69 url(img/bg.jpg) no-repeat top center;
+        font-family: 'Microsoft YaHei';
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    #divWrap {
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .divHorizontalLine {
+        width: 100%;
+        height: 2px;
+        background-color: #BBB;
+    }
+    
+    #divFooterContent {
+        text-align: center;
+    }
+    
+    #Header {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 54px;
+        background: url(img/navigate_backgroud.png) repeat;
+        background-position: 0px 0px;
+        box-shadow: 0px 0px 4px #999;
+    }
+    
+    #NativeMenu {
+        line-height: 40px;
+        color: #FFFFFF;
+        position: absolute;
+        right: 300px;
+        top: 0px;
+    }
+    
+    #divPageBody {
+        width: 100%;
+        margin-top: 54px;
+    }
+    
+    #divWithoutMenu {
+        width: 100%;
+        background: #9H9H9J;
+        border: 0px solid #DDD;
+        overflow: hidden;
+    }
+    
+    .container {
+        background-image: url(img/data_scale_container.png);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-position: top center;
+    }
+    
+    #modelComponent {
+        background-repeat: no-repeat;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 50px;
+        width: 1010px;
+        height: 600px;
+        border: none;
+    }
+    
+    .cycle_point {
+        background-image: url(img/cycle_1.png);
+        position: absolute;
+        left: 133px;
+        top: 196px;
+        height: 52px;
+        width: 52px;
+        background-repeat: no-repeat;
+    }
+    
+    .cycle_top {
+        height: 153px;
+        position: absolute;
+        top: 0px;
+        left: 319px;
+        background-image: url(img/cycle_top.png);
+        width: 380px;
+        /* height: 165px; */
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        z-index: 14;
+    }
+    
+    .center_data {
+        width: 230px;
+        height: 200px;
+        position: absolute;
+        top: 130px;
+        left: 395px;
+        z-index: 14;
+    }
+    
+    .tc {
+        text-align: center;
+    }
+    
+    .f1 {
+        float: left;
+    }
+    
+    .area_1,
+    .area_2,
+    .area_3,
+    .area_4,
+    .area_5,
+    .area_6,
+    .area_7 {
+        position: absolute;
+        text-align: center;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        font-weight: bold;
+        color: white;
+        background-position: center;
+    }
+    
+    .area_1 {
+        background-image: url(img/big_1.png);
+        left: 0px;
+        top: -30px;
+        height: 220px;
+        width: 240px;
+        line-height: 229px;
+    }
+    
+    .topCategoryTitle {
+        float: left;
+        width: 100%;
+        height: 20px;
+        font-size: 15px;
+    }
+    
+    .area_1 .area_2 .topCategoryTitle1, .area_3 .topCategoryTitle1, .area_4 .topCategoryTitle1, 
+    .area_5 .topCategoryTitle1 {
+        padding-top: 5px;
+    }
+    .title_1 {
+        color: #FF96B9;
+    }
+    .title_2 {
+        color: #e2b3ff;
+    }
+    .title_3 {
+        color: #43e7ff;
+    }
+    .title_4 {
+        color: #A7C2FF;
+    }
+    .title_5 {
+        color: #ffee3d;
+    }
+    .title_6 {
+        color: #FFDBBF;
+    }
+    .title_7 {
+        color: #fe92e2;
+    }
+    .area_2{
+        background-image: url(img/big_2.png);
+        left:600px;
+        top:350px;
+        height: 170px;
+        width: 200px;
+        line-height: 170px;
+    }
+    .area_3{
+        background-image: url(img/big_3.png);
+        left:190px;
+        top:280px;
+        height: 170px;
+        width: 200px;
+        line-height: 170px;
+    }
+    .area_4{
+        background-image: url(img/big_4.png);
+        left:-30px;
+        top:260px;
+        height: 170px;
+        width: 200px;
+        line-height: 170px;
+    }
+    .area_5{
+        background-image: url(img/big_5.png);
+        left:807px;
+        top:254px;
+        height: 220px;
+        width: 240px;
+        line-height: 229px;
+    }
+    .area_6{
+        background-image: url(img/big_6.png);
+        left:400px;
+        top:330px;
+        height: 170px;
+        width: 200px;
+        line-height: 170px;
+    }
+    .area_7{
+        background-image: url(img/big_7.png);
+        left:668px;
+        top:-30px;
+        height: 220px;
+        width: 265px;
+        line-height: 230px;
+    }
+    .area_detail {
+        position: absolute;
+        text-align: center;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        font-weight: bold;
+        color: white;
+        height: 45px;
+        width: 45px;
+        line-height: 33px;
+        z-index: 20;
+    }
+    
+    .modal_area_1 {
+        background-image: url(img/small_1.png);
+    }
+    
+    .modal_area_2{
+        background-image: url(img/small_2.png);
+    }
+    .modal_area_3{
+        background-image: url(img/small_3.png);
+    }
+    .modal_area_4{
+        background-image: url(img/small_4.png);
+    }
+    .modal_area_5{
+        background-image: url(img/small_5.png);
+    }
+    .modal_area_6{
+        background-image: url(img/small_6.png);
+    }
+    .modal_area_7{
+        background-image: url(img/small_7.png);
+    }
+    .fr {
+        float: right;
+    }
+    
+    .pt5 {
+        padding-top: 5px;
+    }
+    
+    .hid {
+        display: none;
+    }
+    a,
+    span,
+    input {
+        --webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    
+    .categoryTitle {
+        margin-left: 5px;
+        line-height: 19px;
+        width: 35px;
+        text-align: center;
+        float: left;
+    }
+    
+    .modal_area_hover {
+        position: absolute;
+        text-align: center;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        font-weight: bold;
+        color: block;
+        height: 45px;
+        width: 45px;
+        line-height: 33px;
+        background-image: url(img/small_bg.png);
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="divWrap">
+        <div id="Header">
+            <div id="divHeaderOperator"></div>
+        </div>
+        <div id="NativeMenu">
+        </div>
+        <div id="divPageBody" style="min-height:525px">
+            <div id="divWithoutMenu">
+                <div id="fullpage" class="container">
+                    <div id="modelComponent" class="section  fp-section active" style="height: 683px;">
+                        <div id="cycleContainer" class="f1" style="width: 1010px;height: 500px;position: relative;margin: 0 auto">
+                            <div class="cycle_point" style="width: 52px;height: 52px;"></div>
+                            <img src="img/cycle_3.png">
+                            <div class="fl tc cycle_top" style=""></div>
+                            <div class="f1 tc center_data">
+                                <div style="font-size: 35px;color: white">联&nbsp;通&nbsp;大&nbsp;数&nbsp;据</div>
+                                <div style="font-size: 26px;color: white;padding-top: 20px">七大领域</div>
+                                <div style="font-size: 18px;color:white;padding-top: 30px">5,000个标签+</div>
+                            </div>
+                            <div name="area" class="area_1" id="area_1" >
+                                <div name="detail_area_1" id="area_1_1" class="fr area_detail pt5 hid modal_area_1" style="left: 173px;top: 15px;">
+                                    <span class="categoryTitle">数据爬虫</span>
+                                    <ul id="detail_area_1_1" class="hid">
+                                        <li style="text-align: left;width: 108%;">爬虫数据：30亿条/天</li>
+                                    </ul>
+                                </div>
+                                <div class="topCategoryTitle topCategoryTitle1"> 爬 虫 数 据</div>
+                                <div class="topCategoryTitle  title_1" style="margin-top: 0px">
+                                    <span style="font-size: 14px">2,043,598</span>万条
+                                </div>
+                            </div>
+                            <div name="area" class="area_2" id="area_2">
+                                <div name="detail_area_2" id="area_2_1" class="fr area_detail pt5 hid modal_area_2" style="left: 140px;top: 0px">
+                                    <span class="categoryTitle">用户浏览</span>
+                                    <ul id="detail_area_2_1" class="hid">
+                                        <li style="text-align: left;width: 108%;">用户浏览</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_2" id="area_2_2" class="fr area_detail pt5 hid modal_area_2" style="left: 164px;top: 44px">
+                                    <span class="categoryTitle">产品信息</span>
+                                    <ul id="detail_area_2_2" class="hid">
+                                        <li style="text-align: left;width: 108%;">产品信息</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_2" id="area_2_3" class="fr area_detail pt5 hid modal_area_2" style="left: 160px;top: 92px">
+                                    <span class="categoryTitle">订单数据</span>
+                                    <ul id="detail_area_2_3" class="hid">
+                                        <li style="text-align: left;width: 108%;">订单数据</li>
+                                    </ul>
+                                </div>
+                                <div class="topCategoryTitle topCategoryTitle1" style="margin-top: 5px"> E 域 数 据</div>
+                                <div class="topCategoryTitle  title_2" style="margin-top: 0px">
+                                    <span style="font-size: 14px">3,043,598</span>万条
+                                </div>
+                            </div>
+                            <div name="area" class="area_3" id="area_3">
+                                <div name="detail_area_3" id="area_3_1" class="fr area_detail pt5 hid modal_area_3" style="left: 140px;top: 0px">
+                                    <span class="categoryTitle">财务</span>
+                                    <ul id="detail_area_3_1" class="hid">
+                                        <li style="text-align: left;width: 108%;">营收：288亿元/年</li>
+                                        <li style="text-align: left;width: 108%;">成本：199亿元/年</li>
+                                        <li style="text-align: left;width: 108%;">利润：16亿元/年</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_3" id="area_3_2" class="fr area_detail pt5 hid modal_area_3" style="left: 164px;top: 44px">
+                                    <span class="categoryTitle">采购</span>
+                                    <ul id="detail_area_3_2" class="hid">
+                                        <li style="text-align: left;width: 108%;">设备采购</li>
+                                        <li style="text-align: left;width: 108%;">物资采购</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_3" id="area_3_3" class="fr area_detail pt5 hid modal_area_3" style="left: 160px;top: 92px">
+                                    <span class="categoryTitle">工程</span>
+                                    <ul id="detail_area_3_3" class="hid">
+                                        <li style="text-align: left;width: 108%;">合同</li>
+                                        <li style="text-align: left;width: 108%;">订单</li>
+                                        <li style="text-align: left;width: 108%;">款项</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_3" id="area_3_4" class="fr area_detail pt5 hid modal_area_3" style="left: 132px;top: 132px">
+                                    <span class="categoryTitle">考核</span>
+                                    <ul id="detail_area_3_4" class="hid">
+                                        <li style="text-align: left;width: 108%;">集团考核</li>
+                                        <li style="text-align: left;width: 108%;">财务考核</li>
+                                        <li style="text-align: left;width: 108%;">企业考核</li>
+                                    </ul>
+                                </div>
+                                <div class="topCategoryTitle topCategoryTitle1"> M 域 数 据</div>
+                                <div class="topCategoryTitle  title_3" style="margin-top: 0px">
+                                    营收<span style="font-size: 14px">4,223,598</span>万
+                                </div>
+                            </div>
+                            <div name="area" class="area_4" id="area_4">
+                                <div name="detail_area_4" id="area_4_1" class="fr area_detail pt5 hid modal_area_4" style="left: 140px;top: 0px">
+                                    <span class="categoryTitle">渠道</span>
+                                    <ul id="detail_area_4_1" class="hid">
+                                        <li style="text-align: left;width: 108%;">电子渠道：15000个</li>
+                                        <li style="text-align: left;width: 108%;">集团渠道：15000个</li>
+                                        <li style="text-align: left;width: 108%;">宽固渠道：15000个</li>
+                                        <li style="text-align: left;width: 108%;">其他直销：15000个</li>
+                                        <li style="text-align: left;width: 108%;">社会实体门店渠道：15000个</li>
+                                        <li style="text-align: left;width: 108%;">暂未划归：15000个</li>
+                                        <li style="text-align: left;width: 108%;">自由渠道：15000个</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_4" id="area_4_2" class="fr area_detail pt5 hid modal_area_4" style="left: 164px;top: 44px">
+                                    <span class="categoryTitle">产品</span>
+                                    <ul id="detail_area_4_2" class="hid">
+                                        <li style="text-align: left;width: 108%;">移动产品：5000个</li>
+                                        <li style="text-align: left;width: 108%;">宽带产品：1000个</li>
+                                        <li style="text-align: left;width: 108%;">固网产品：1000个</li>
+                                        <li style="text-align: left;width: 108%;">融合产品：1000个</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_4" id="area_4_3" class="fr area_detail pt5 hid modal_area_4" style="left: 160px;top: 92px">
+                                    <span class="categoryTitle">客户</span>
+                                    <ul id="detail_area_4_3" class="hid">
+                                        <li style="text-align: left;width: 108%;">移动用户：4000万户+</li>
+                                        <li style="text-align: left;width: 108%;">宽带用户：410万户+</li>
+                                        <li style="text-align: left;width: 108%;">网固用户：640万户+</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_4" id="area_4_4" class="fr area_detail pt5 hid modal_area_4" style="left: 132px;top: 132px">
+                                    <span class="categoryTitle">业务</span>
+                                    <ul id="detail_area_4_4" class="hid">
+                                        <li style="text-align: left;width: 108%;">移动业务：20万次/日</li>
+                                        <li style="text-align: left;width: 108%;">宽带业务：12万次/日</li>
+                                        <li style="text-align: left;width: 108%;">网固业务：5万次/日</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_4" id="area_4_5" class="fr area_detail pt5 hid modal_area_4" style="left: 91px;top: 152px">
+                                    <span class="categoryTitle">客服</span>
+                                    <ul id="detail_area_4_5" class="hid">
+                                        <li style="text-align: left;width: 108%;">10010：25万次/日</li>
+                                        <li style="text-align: left;width: 108%;">短信客服：60万次/日</li>
+                                    </ul>
+                                </div>
+                                <div class="topCategoryTitle topCategoryTitle1"> B 域 数 据</div>
+                                <div class="topCategoryTitle  title_4" style="margin-top: 0px">
+                                    <span style="font-size: 14px">119,223,598</span>个
+                                </div>
+                            </div>
+                            <div name="area" class="area_5" id="area_5">
+                                <div name="detail_area_5" id="area_5_1" class="fr area_detail pt5 hid modal_area_5" style="left: 21px;top: 18px">
+                                    <span class="categoryTitle">位置数据</span>
+                                    <ul id="detail_area_5_1" class="hid">
+                                        <li style="text-align: left;width: 108%;">自由渠道：15000个</li>
+                                    </ul>
+                                </div>
+                                <div class="topCategoryTitle topCategoryTitle1" style="padding-top: 5px;"> 位 置 数 据</div>
+                                <div class="topCategoryTitle  title_5" style="margin-top: 0px">
+                                    <span style="font-size: 14px">119,223,598</span>个
+                                </div>
+                            </div>
+                            <div name="area" class="area_6" id="area_6">
+                                <div name="detail_area_6" id="area_6_1" class="fr area_detail pt5 hid modal_area_6" style="left: 140px;top: 0px">
+                                    <span class="categoryTitle">基站</span>
+                                    <ul id="detail_area_6_1" class="hid">
+                                        <li style="text-align: left;width: 108%;">语音信令：20亿条/天</li>
+                                        <li style="text-align: left;width: 108%;">上网信令：13亿条/天</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_6" id="area_6_2" class="fr area_detail pt5 hid modal_area_6" style="left: 163px;top: 43px">
+                                    <span class="categoryTitle">宽带</span>
+                                    <ul id="detail_area_6_2" class="hid">
+                                        <li style="text-align: left;width: 108%;">上网数据</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_6" id="area_6_3" class="fr area_detail pt5 hid modal_area_6" style="left: 163px;top: 91px">
+                                    <span class="categoryTitle">网管</span>
+                                    <ul id="detail_area_6_3" class="hid">
+                                        <li style="text-align: left;width: 108%;">网管日日志</li>
+                                        <li style="text-align: left;width: 108%;">资源管理</li>
+                                        <li style="text-align: left;width: 108%;">管线资源</li>
+                                    </ul>
+                                </div>
+                                <div class="topCategoryTitle topCategoryTitle1" style="padding-top: 0px"> O 域 数 据</div>
+                                <div class="topCategoryTitle  title_6" style="margin-top: 0px">
+                                    <span style="font-size: 14px">30,598</span>万条
+                                </div>
+                            </div>
+                            <div name="area" class="area_7" id="area_7">
+                                <div name="detail_area_7" id="area_7_1" class="fr area_detail pt5 hid modal_area_7" style="left: 13px;top: 33px">
+                                    <span class="categoryTitle">上网行为</span>
+                                    <ul id="detail_area_7_1" class="hid">
+                                        <li style="text-align: left;width: 108%;">新闻：100亿条/天</li>
+                                        <li style="text-align: left;width: 108%;">电商：30亿条/天</li>
+                                        <li style="text-align: left;width: 108%;">搜索：60亿条/天</li>
+                                        <li style="text-align: left;width: 108%;">APP：5亿条/天</li>
+                                    </ul>
+                                </div>
+                                <div name="detail_area_7" id="area_7_2" class="fr area_detail pt5 hid modal_area_7" style="left: 0px;top: 80px">
+                                    <span class="categoryTitle">爬虫数据</span>
+                                    <ul id="detail_area_7_2" class="hid">
+                                        <li style="text-align: left;width: 108%;">新闻：100亿条/天</li>
+                                        <li style="text-align: left;width: 108%;">新闻：32亿条/天</li>
+                                        <li style="text-align: left;width: 108%;">新闻：65亿条/天</li>
+                                        <li style="text-align: left;width: 108%;">新闻：15亿条/天</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="topCategoryTitle topCategoryTitle1" style="margin-top: -15px">上 网 数 据</div>
+                                <div class="topCategoryTitle  title_7" style="margin-top: 0px">
+                                    <span style="font-size: 14px">2,638,598</span>万条
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //椭圆旋转的方法   椭圆的坐标的公式 x=acosθ ,y=bsinθ
+    //中心点横坐标
+    var dotLeft = $("#cycleContainer").width() / 2 - 100 + 72;
+    // 中心点纵坐标
+    var dotTop = $("#cycleContainer").height() / 2 - 100 + 48;
+    // 椭圆长边
+    var a = 350;
+    // 椭圆短边
+    var b = 160;
+
+    // 运动的速度
+    var speed = 1;
+
+    // 运动函数
+    function fun_animat() {
+        // 运运的速度
+        speed += 2;
+        // 运动距离，即运动的弧度数;
+        var ainhd = speed * Math.PI / 180;
+        // 按速度来定位DIV元素
+        $(".cycle_point").css({
+            "left": Math.sin(ainhd) * a + dotLeft,
+            "top": Math.cos(ainhd) * b + dotTop,
+            "z-index": 10,
+            "width": 52,
+            "height": 52,
+            "opacity": 1
+        });
+    };
+    // 定时调用运动函数
+    var _style = [ 'background-color:#3E5481; font-family: 微软雅黑;font-weight: normal;color:#CCFF33;padding: 15px 30px 15px 15px;', '#3E5481' ];
+    $(document).ready(function() {
+        setInterval(fun_animat, 100);
+        $("[name='area']").each(function(){
+            //浮动小球的显示与隐藏
+            $(this).mouseover(function() {
+                var modalName= "detail_"+$(this).attr("id");
+                $("[name='"+modalName+"']").show();
+            });
+            $(this).mouseout(function() {
+                var modalName="detail_"+$(this).attr("id");
+                $("[name='"+modalName+"']").hide();
+            });
+            strategyModelLayer=-1
+            var _style = [ 'background-color:#3E5481; font-family: 微软雅黑;font-weight: normal;color:#CCFF33;padding: 15px 30px 15px 15px;', '#3E5481' ];
+            $('.area_detail').hover(function() {
+                var detailId="detail_"+$(this).attr("id");
+                var topId="modal_area_"+$(this).attr("id").substr(5,1);
+                strategyModelLayer=layer.tips($("#"+detailId).html(), this, {
+                    guide:1,
+                    style: _style,
+                    maxWidth:320
+                });
+                $(this).addClass('modal_area_hover').removeClass(topId);
+            },function(){
+                var topId="modal_area_"+$(this).attr("id").substr(5,1);
+                layer.close(strategyModelLayer);
+                $(this).addClass(topId).removeClass('modal_area_hover');
+            })
+        });
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="layer/layer.min.js"></script>
+	<style type="text/css">
+	html,body{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+	BODY{
+		padding: 0px;
+		margin:0px;
+		background-color: #EEE;
+		font-size: 12px;
+		font-family: Microsoft YaHei;
+		overflow: auto;
+		overflow-x: hidden;
+	}
+	body{
+		margin:0;
+		padding:0;
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+	}
+
+	#divWrap{
+		width: 100%;
+		min-height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#Header {
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    width: 100%;
+	    height: 54px;
+	    background: url(img/navigate_backgroud.png) repeat;
+	    background-position: 0px 0px;
+	    box-shadow: 0px 0px 4px #999;
+	}
+	#NativeMenu{
+		line-height: 40px;
+		color: #FFFFFF;
+		position: absolute;
+		right: 300px;
+		top: 0px;
+	}
+	#divPageBody{
+		width: 100%;
+		margin-top:54px;
+	}
+	#divWithoutMenu{
+		width: 100%;
+		background: #9H9H9J;
+		border: 0px solid #DDD;
+		overflow: hidden;
+	}
+	#divPageAwayBody{
+		background: url(img/bgModel.png) center top no-repeat;
+		width: 100%;
+		height:100%;
+		padding: 0;
+		margin:0;
+		position: absolute;
+	}
+	#container{
+		width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#reasonComponent{
+		width: 980px;
+		height: 438px;
+	}
+	.divUserAway{
+		clear: both;
+		width: 680px;
+	}
+	.title{
+		text-align: left;
+		padding-top: 34px;
+		padding-left: 67px;
+		height: 50px;
+	}
+	.iconRow{
+		width: 100%;
+		float: left;
+		height: 213px;
+		padding: 45px 0px 0px 234px;
+	}
+	.iconUserLost{
+		width: 212px;
+		height: 213px;
+		float: left;
+	}
+	.iconPointer{
+		float: left;
+		width: 75px;
+		height: 213px;
+		text-align: center;
+		padding:90px 75px 0px 75px;
+	}
+	.iconMoneyLost{
+		float: left;
+		width: 212px;
+		height: 213px;
+	}
+	.row2{
+		clear: both;
+		font-size: 14px;
+		line-height: 17px;
+		height: 17px;
+		color: #0cc1e6;
+	}
+	.row2 .text{
+		float: left;
+		width: 110px;
+		padding-top: 30px;
+		padding-left: 280px;
+		text-align: center;
+	}
+	.row3{
+		clear: both;
+		font-size: 14px;
+		line-height: 24px;
+		height: 24px;
+		color: #0cc1e6;
+	}
+	.row3 .text{
+		float: left;
+		padding-top: 20px;
+		padding-left: 250px;
+		width: 180px;
+		text-align: center;
+	}
+	#reasonComponent .outstanding{
+		font-size: 24px;
+		color: rgb(202,121,32);
+	}
+	.divUserAway{
+		clear: both;
+		width: 980px;
+	}
+	#divAwayTop{
+		text-align: left;
+		padding-top: 20px;
+		height: 64px;
+	}
+	#divAwayDown{
+		height: 420px;
+		padding-top: 20px;
+		padding-left: 103px;
+	}
+	#divAwayTop img{
+		padding-top: 20px;
+		padding-left: 67px;
+	}
+	#divRight{
+		background-image: url(img/bg2.png);
+		z-index: 1;
+		width: 875px;
+		height: 420px;
+		background-repeat: no-repeat;
+		font-size: 10px;
+		font-family: ΢���ź�;
+		font-weight: bold;
+	}
+	.ul1{
+		width:310px;
+		height: 14px;
+		padding-top: 165px;
+		color: #0cc1e6;
+	}
+	.ul2{
+		width: 220px;
+		height: 14px;
+		padding-top: 58px;
+		color: #be8116;
+	}
+	.ul3{
+		width: 245px;
+		color: #c80e47;
+	}
+	#divAwayDown ul{
+		list-style: none;
+		float: left;
+		padding-left: 0px;
+		margin: 0px;
+	}
+	.liStart1{
+		top: 14px;
+		left: -33px;
+		background: url(img/1_4b.png) no-repeat 50% 10%;
+	}
+	.liStart1_1{
+		top: 14px;
+		left: -33px;
+		background: url(img/1_3b.png) no-repeat 50% 10%;
+	}
+	.liStart2{
+		top: 14px;
+		left: 5px;
+		background: url(img/1_4b.png) no-repeat 50% 10%;
+	}
+	.liStart2_2{
+		top: 14px;
+		left: 5px;
+		background: url(img/1_3b.png) no-repeat 50% 10%;
+	}
+	.liStart3{
+		top: 14px;
+		left: 30px;
+		background: url(img/1_4b.png) no-repeat 50% 10%;
+	}
+	.liStart3_3{
+		top: 14px;
+		left: 30px;
+		background: url(img/1_3b.png) no-repeat 50% 10%;
+	}
+	.liStart4{
+		top: 14px;
+		left: 50px;
+		background: url(img/1_4b.png) no-repeat 50% 10%;
+	}
+	.liStart4_4{
+		top: 14px;
+		left: 50px;
+		background: url(img/1_3b.png) no-repeat 50% 10%;
+	}
+	.liStart5{
+		top: 14px;
+		left: -22px;
+		background: url(img/2_4b.png) no-repeat 30% 12%;
+	}
+	.liStart5_5{
+		top: 14px;
+		left: -22px;
+		background: url(img/2_3b.png) no-repeat 30% 12%;
+	}
+	.liStart6{
+		top: 14px;
+		left: 0px;
+		background: url(img/2_4b.png) no-repeat 30% 12%;
+	}
+	.liStart6_6{
+		top: 14px;
+		left: 0px;
+		background: url(img/2_3b.png) no-repeat 30% 12%;
+	}
+	.liStart7{
+		top: -10px;
+		left: -18px;
+		background: url(img/3_4b.png) no-repeat 50% 0%;
+	}
+	.liStart7_7{
+		top: -10px;
+		left: -18px;
+		background: url(img/3_3b.png) no-repeat 50% 0%;
+	}
+	.liStart8{
+		top: -10px;
+		left: 21px;
+		background: url(img/3_4b.png) no-repeat 50% 10%;
+	}
+	.liStart8_8{
+		top: -10px;
+		left: 21px;
+		background: url(img/3_3b.png) no-repeat 50% 10%;
+	}
+	.liStart9{
+		top:-10px; 
+		left:53px;
+		background: url(img/3_4b.png) no-repeat 50% 10%;
+	}
+	.liStart9_9{
+		top:-10px; 
+		left:53px;
+		background: url(img/3_3b.png) no-repeat 50% 10%;
+	}
+	.ul1 li{
+		position: relative;
+		width: 74px;
+		height: 115px;
+	}
+	.ul2 li{
+		position: relative;
+		width: 77px;
+		height: 115px;
+	}
+	.ul3 li{
+		position: relative;
+		width: 77px;
+		height: 120px;
+	}
+	#divAwayDown ul li{
+		float: left;
+		cursor: pointer;
+	}
+	#divAwayDown ul li div{
+		top: -40px;
+		left: -20px;
+		position: relative;
+		height: 20px;
+		width: 120px;
+		
+	}
+	#liStart1 img{
+		padding-top: 35px;
+		padding-left: 0px;
+	}
+	#liStart2 img{
+		padding-top: 35px;
+		padding-left: 0px;
+	}
+	#liStart3 img{
+		padding-top: 35px;
+		padding-left: 6px;
+	}
+	#liStart4 img{
+		padding-top: 35px;
+		padding-left: 0px;
+	}
+	#liStart5 img{
+		padding-top: 35px;
+		padding-left: 3px;
+	}
+	#liStart6 img{
+		padding-top: 35px;
+		padding-left: 3px;
+	}
+	#liStart7 img{
+		padding-top: 35px;
+		padding-left: 2px;
+	}
+	#liStart8 img{
+		padding-top: 35px;
+		padding-left: 2px;
+	}
+	#liStart9 img{
+		padding-top: 35px;
+		padding-left: 2px;
+	}
+	#modelComponent{
+		/*width: 1010px;*/
+		height: 580px;
+		color: #9ed9ff;
+	}
+	#modelComponent .title{
+		width: 100%;
+		padding-top: 34px;
+		height: 50px;
+	}
+	#resultComponent .title{
+		width: 100%;
+		padding-top: 20px;
+		height: 50px;
+	}
+	#modelComponent .left{
+		float: left;
+		height: 480px;
+		padding-left: 67px;
+	}
+	#modelComponent .right{
+		float: left;
+		height: 480px;
+		padding-left: 55px;
+	}
+	#modelComponent .secondTitle{
+		width: 158px;
+		height: 32px;
+		padding-top: 15px;
+		padding-left: 13px;
+		background-image: url(img/bg-bias.png);
+		background-position: right bottom;
+		background-repeat:no-repeat;
+		line-height: 32px;
+		font-size: 16px;
+		text-align: center;
+		cursor: pointer;
+	}
+	#modelComponent .hide{
+		display: none;
+	}
+	#modelComponent .floor{
+		width: 100%;
+		height: 49px;
+		text-align: center;
+		line-height: 49px;
+		font-size: 13px;
+		float: none;
+		clear: both;
+		position: relative;
+	}
+	#modelComponent .lineRow1{
+		position: relative;
+		left: 180px;
+		width: 296px;
+		height: 43px;
+		background-image: url(img/com_floor1.png);
+		background-repeat: no-repeat;
+	}
+	#modelComponent .floor .floor1{
+		width: 204px;
+		height: 49px;
+		margin-left: 235px;
+		cursor: pointer;
+	}
+	#modelComponent .floor .floor1Container{
+		width: 100%;
+		height: 100%;
+		background-image: url(img/fl1_ns.png);
+		background-repeat: no-repeat;
+		position:relative;
+	}
+	#modelComponent .floor .floor1Selected{
+		width: 100%;
+		height: 100%;
+		background-image: url(img/fl1_s.png);
+		background-repeat: no-repeat;
+		position:relative;
+	}
+	#modelComponent .show{
+		display: block;
+	}
+	#modelComponent .hide{
+		display: none;
+	}
+	#modelComponent .selected{
+		color: white;
+	}
+	 #modelComponent .floor .floor2{
+	 	width: 164px;
+	 	height: 49px;
+	 	position: absolute;
+	 	cursor:pointer;
+	 }
+	 .floor2Container{
+	 	width: 100%;
+	 	height: 100%;
+	 	background-image: url(img/fl2_ns.png);
+	 	background-repeat: no-repeat;
+	 	position: relative;
+	 }
+	 .floor2Selected{
+	 	width: 100%;
+	 	height: 100%;
+	 	background-image: url(img/fl2_s.png);
+	 	background-repeat: no-repeat;
+	 	position: relative;
+	 }
+	 #modelComponent .lineRow2{
+	 	clear: both;
+	 	float: none;
+	 	position: relative;
+	 	top: -10px;
+	 	width: 100%;
+	 	height: 51px;
+	 }
+	  #modelComponent .lineRow2_1{
+	  	float: left;
+	  	margin-left: 50px;
+	  	width: 258px;
+	  	height: 51px;
+	  	background-image: url(img/com_floor2_1.png);
+	  	background-repeat: no-repeat;
+	 }
+	 #modelComponent .lineRow2_2{
+	 	float: left;
+	 	margin-left: 105px;
+	 	width: 123px;
+	 	height: 51px;
+		background-image:url(img/com_floor2_2.png);
+		background-repeat: no-repeat;
+	 }
+	 #modelComponent .floor .floor3{
+		width: 98px;
+		height: 49px;
+		position: absolute;
+		margin-left: 25px;
+		line-height: 15px;
+		/*padding-top: 10px;*/
+		cursor:pointer;
+	 }
+	 #modelComponent .floor .floor3Container{
+	 	width: 100%;
+	 	height: 100%;
+	 	background-image:url(img/fl3_ns.png);
+	 	background-repeat:no-repeat;
+	 	position: relative;
+	 }
+	 #modelComponent .floor .floor3Selected{
+	 	width: 100%;
+	 	height: 100%;
+	 	background-image:url(img/fl3_s.png);
+	 	background-repeat:no-repeat;
+	 	position: relative;
+	 }
+	 #modelComponent .floor .floor3Container span{
+		height: 30px;
+	 	padding-top: 10px;
+	 }
+	 #modelComponent .dottedRow{
+	 	clear: both;
+	 	float: none;
+	 	width: 100%;
+	 	height: 34px;
+	 	position: relative;
+	 	top: -11px;
+	 }
+	 #modelComponent .dottedIcon{
+	 	width:7px;
+	 	height:100%;
+	 	float: left;
+	 	background-image:url(img/vertical_dot.png);
+	 	background-position:center;
+	 	background-repeat: no-repeat;
+	 }
+	#modelComponent .floor .floor4{
+		width: 98px;
+		height: 49px;
+		position: absolute;
+		margin-left: 10px;
+		background-image: url(img/fl4_s.png);
+		background-repeat: no-repeat;
+		color: white;
+	}
+	#modelComponent .etcModel1{
+		position: absolute;
+		left:268px;
+		height: 49px;
+		width: 68px;
+		background-image: url(img/horizon_dot.png);
+		background-position: center;
+		background-repeat:no-repeat;
+	}
+	#modelComponent .rightContainer{
+		padding-top:10px;
+		padding-left:10px;
+		margin-top:10px;
+	}
+	#modelComponent .rightRow{
+		padding-top:15px;
+		padding-left:6px;
+		font-size:15px;
+		text-align: left;
+		line-height: 15px;
+		height: 20px;
+		float:none;
+		clear:both;
+	}
+	#modelComponent .rightRow .left{
+		float: left;
+		width: 165px;
+		height:100%;
+		padding-left: 0px;
+	}
+	#modelComponent .rightRow .right	{
+		float:left;
+		height: 100%;
+		margin-left:2px;
+		padding-left:0px;
+	}
+	#modelComponent .rightRow .weight12{
+		background-image: url(img/com-weight12.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 200px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight11{
+		background-image: url(img/com-weight11.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 185px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight10{
+		background-image: url(img/com-weight10.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 157px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight9{
+		background-image: url(img/com-weight9.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 147px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight8{
+		background-image: url(img/com-weight8.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 138px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight7{
+		background-image: url(img/com-weight7.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 129px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight6{
+		background-image: url(img/com-weight6.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 118px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight5{
+		background-image: url(img/com-weight5.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 107px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight4{
+		background-image: url(img/com-weight4.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 96px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight3{
+		background-image: url(img/com-weight3.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 83px;
+		height:100%;
+	}
+	#modelComponent .rightRow .weight{
+		color: white;
+		margin-left:6px;
+	}
+	#modelComponent .row3Txt{
+		float:left;
+	}
+	#modelComponent .etcModel2{
+		float: left;
+		width: 34px;
+		height: 9px;
+		background-image:url(img/horizon_dot.png);
+		background-repeat: no-repeat;
+		margin-top: 6px;
+		margin-left:8px;
+	}
+	#modelComponent{
+		color: #9ed9ff;
+	}
+	#modelComponent .rightRow{
+		padding-top: 15px;
+		padding-left: 6px;
+		font-size: 15px;
+		text-align: left;
+		line-height: 15px;
+		height: 20px;
+		clear: both;
+		float: none;
+	}
+	#modelComponent .rightRow .left2{
+		float: left;
+		width: 125px;
+		height: 100%;
+		padding-left:0px;
+	}
+	#modelComponent .rightRow .white{
+		color:white;
+		margin-left:6px;
+	}
+	#modelComponent .rightRow .weight_10{
+		background-image: url(img/com-weight-10.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 62px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_9	{
+		background-image: url(img/com-weight-9.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 56px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_8	{
+		background-image: url(img/com-weight-8.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 56px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_7{
+		background-image: url(img/com-weight-7.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 50px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_6{
+		background-image: url(img/com-weight-6.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 44px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_5{
+		background-image: url(img/com-weight-5.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 38px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_4{
+		background-image: url(img/com-weight-4.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 32px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_3{
+		background-image: url(img/com-weight-3.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 26px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_2{
+		background-image: url(img/com-weight-2.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 20px;
+		height: 100%;
+	}
+	#modelComponent .rightRow .weight_1{
+		background-image: url(img/com-weight-1.png);
+		background-repeat: no-repeat;
+		margin-top:7px;
+		width: 20px;
+		height: 100%;
+	}
+	#resultComponent{
+		width: 100%;
+		height:430px;
+		float: none;
+		clear: both;
+		color:#9ed9ff;
+	}
+	#resultComponent .resultInfo{
+		width: 510px;
+		height: 266px;
+		margin-top: 67px;
+		margin-left: 215px;
+		background-image:url(img/result_all.png);
+		background-repeat: no-repeat;
+	}
+	#resultComponent .resultInfo .total{
+		width: 200px;
+		position: relative;
+		left: -70px;
+		top: -2px;
+	}
+	#resultComponent .resultInfo .predict{
+		width: 200px;
+		position:relative;
+		left: -70px;
+		top:34px;
+	}
+	#resultComponent .resultInfo .result{
+		width: 200px;
+		position:relative;
+		left: -70px;
+		top:75px;
+	}
+	#resultComponent .resultInfo .hitRatio{
+		width: 70px;
+		position:relative;
+		left: 265px;
+		top:55px;
+		font-size: 19px;
+		line-height: 27px;
+		font-weight: 400px;
+		text-align: center;
+		color: white;
+		width: 70px;
+		height: 55px;
+	}
+	</style>
+</head>
+<body style="height: 100%;overflow:hidden">
+<div id="divWrap">
+	<div id="Header">
+		<div id="divHeaderOperator"></div>
+	</div>
+	<div id="NativeMenu"></div>
+	<div id="divPageBody" style="min-height: 525px;">
+		<div id="divWithoutMenu" style="display: block; min-height: 579px;">
+			<div id="divPageAwayBody">
+				<div id="container">
+					<div id="reasonComponent" class="section" data-anchor="page1">
+						<div class="title"><img src="img/reason-title.png"></div>
+						<div class="iconRow">
+							<div class="iconUserLost"><img src="img/userLost.png"></div>
+							<div class="iconPointer"><img src="img/zhixiang.png"></div>
+							<div class="iconMoneyLost"><img src="img/moneyLost.png"></div>
+						</div>
+						<div class="row2">
+							<div class="text">2014年联通</div>
+							<div class="text" style="padding-left: 330px;">造成2014年联通</div>
+						</div>
+						<div class="row3">
+							<div class="text"><span class="outstanding">约流失420万</span>用户</div>
+							<div class="text" style="padding-left: 270px;"><span class="outstanding">损失约5.5亿</span>元收入</div>
+						</div>
+					</div>
+					<div class="divUserAway section" data-anchor="page2">
+						<div id="divAwayTop"><img src="img/userTitle.png"></div>
+						<div id="divAwayDown">
+							<div id="divRight">
+								<ul class="ul1">
+									<li id="liStart1" class="liStart1" style="font-size: 10px;">
+										<div>数据收集<br/><font color="#f99300">6257039条</font></div>
+										<img src="img/1_1.png">
+									</li>
+									<li id="liStart2" class="liStart2" style="font-size: 10px;">
+										<div>数据清洗<br/><font color="#f99300">剩余6239118条</font></div>
+										<img src="img/1_2.png">
+									</li>
+									<li id="liStart3" class="liStart3" style="font-size: 10px;">
+										<div>数据离散化<br/><font color="#f99300">67项指标</font></div>
+										<img src="img/1_3.png">
+									</li>
+									<li id="liStart4" class="liStart4" style="font-size: 10px;">
+										<div>数据标准化 <br/><font color="#f99300">28项指标</font></div>
+										<img src="img/1_4.png">
+									</li>
+								</ul>
+								<ul style="width: 100px; height: 20px;"></ul>
+								<ul class="ul2">
+									<li id="liStart5" class="liStart5" style="font-size: 10px;">
+										<div>模拟训练<br/><font color="#f99300">6239118组数据</font></div>
+										<img src="img/2_1.png">
+									</li>
+									<li id="liStart6" class="liStart6" style="font-size: 10px;">
+										<div>测试调优<br/><font color="#f99300">8次</font></div>
+										<img src="img/2_1.png">
+									</li>
+								</ul>
+								<ul class="ul3">
+									<li id="liStart7" class="liStart7" style="font-size: 10px;">
+										<div>生成决策树<br/><font color="#f99300">49285个节点</font></div>
+										<img src="img/3_1.png">
+									</li>
+									<li id="liStart8" class="liStart8" style="font-size: 10px;">
+										<div>权重因子<br/><font color="#f99300">25个</font></div>
+										<img src="img/3_2.png">
+									</li>
+									<li id="liStart9" class="liStart9" style="font-size: 10px;">
+										<div>预测流失<br/><font color="#f99300">2批次</font></div>
+										<img src="img/3_3.png">
+									</li>
+									<div id="msg1" style="display: none;">模型共使用<font color="#ff9ea0">6257039条</font>用户数据;模型共调用11张数据表</div>
+									<div id="msg2" style="display: none;">清洗完毕后共<font color="#ff9ea0">剩余6239118条</font>有效的用户数据</div>
+									<div id="msg3" style="display: none;">模型共对<font color="#ff9ea0">67项</font>指标进行离散化处理</div>
+									<div id="msg4" style="display: none;">模型共对<font color="#ff9ea0">28项指标</font>进行标准化处理</div>
+									<div id="msg5" style="display: none;">模型共对<font color="#ff9ea0">6239118组</font>数据进行训练</div>
+									<div id="msg6" style="display: none;">模型共进行了<font color="#ff9ea0">8次</font>测试调优</div>
+									<div id="msg7" style="display: none;">模型共生成<font color="#ff9ea0">49285个节点，1788条</font>规则</div>
+									<div id="msg8" style="display: none;">模型共有<font color="#ff9ea0">35个</font>高权重因子</div>
+									<div id="msg9" style="display: none;">模型共进行了<font color="#ff9ea0">2个批次</font>流失用户预测</div>
+								</ul>
+								<ul></ul>
+								<div></div>
+							</div>
+						</div>
+					</div>
+					<!-- 流失用户模型由什么组成 -->
+					<div id="modelComponent" class="section">
+						<div class="title">
+							<img src="img/component-title.png" />
+						</div>
+						<div class="left">
+							<div class="secondTitle" id="strategyModel">
+								<span>决策树模型</span>
+								<span class="hide" id="strategyModels">决策树是在已知各种情况发生概率的基础上，通过构成决策树来求取净现值的期望值大于等于零的概率，评价项目风险，判断其可行性的决策分析方法。</span>
+							</div>
+							<div class="floor" style="margin-top: 45px;">
+								<div class="floor1">
+									<div class="floor1Container" style="height: 49px;top: 0px;">
+										<span class="show n-selected">样本数据（165万）</span>
+										<span class="selected hide">116万流失、49万非流失</span>
+									</div>
+								</div>
+							</div>
+							<div class="lineRow1" style="top:-3px;"></div>
+							<div class="floor" style="top:-7px;">
+								<div class="floor2" style="left: 100px;">
+									<div class="floor2Container">
+										<span class="show n-selected">开通状态（95万）</span>
+										<span class="selected hide">55万流失、40万非流失</span>
+									</div>
+								</div>
+								<div class="floor2" style="left: 400px;">
+									<div class="floor2Container">
+										<span class="show n-selected">停机状态（70万）</span>
+										<span class="selected hide">61万流失、9万非流失</span>
+									</div>
+								</div>
+							</div>
+							<div class="lineRow2">
+								<div class="lineRow2_1"></div>
+								<div class="lineRow2_2"></div>
+							</div>
+							<div class="floor" style="top:-13px;">
+								<div class="floor3" style="margin-left: 10px;">
+									<div class="floor3Container">
+										<span class="show n-selected">社会渠道<br/>（33万）</span>
+										<span class="selected hide">25万流失<br/>8万非流失</span>
+									</div>
+								</div>
+								<div class="floor3" style="left: 106px;">
+									<div class="floor3Container">
+										<span class="show n-selected">电子渠道<br/>（24万）</span>
+										<span class="selected hide">10万流失<br/>14万非流失</span>
+									</div>
+								</div>
+								<div class="floor3" style="left: 232px;">
+									<div class="floor3Container">
+										<span class="show n-selected">只有渠道<br/>（38万）</span>
+										<span class="selected hide">20万流失<br/>18万非流失</span>
+									</div>
+								</div>
+								<div class="floor3" style="left: 340px;">
+									<div class="floor3Container">
+										<span class="show n-selected">活动到期<br/>（39万）</span>
+										<span class="selected hide">45万流失<br/>5万非流失</span>
+									</div>
+								</div>
+								<div class="floor3" style="left: 460px;">
+									<div class="floor3Container">
+										<span class="show n-selected">活动未到期<br/>（21万）</span>
+										<span class="selected hide">16万流失<br/>5万非流失</span>
+									</div>
+								</div>
+							</div>
+							<div class="dottedRow">
+								<div class="dottedIcon" style="margin-left:55px;"></div>
+								<div class="dottedIcon" style="margin-left: 115px;"></div>
+								<div class="dottedIcon" style="margin-left: 225px;"></div>
+								<div class="dottedIcon" style="margin-left: 115px;"></div>
+							</div>
+							<div class="floor">
+								<div class="floor4">2329流失</div>
+								<div class="floor4" style="left: 120px;">18非流失</div>
+								<div class="etcModel1"></div>
+								<div class="floor4" style="left: 356px;">320流失</div>
+								<div class="floor4" style="left: 475px;">1512流失</div>
+							</div>
+						</div>
+						<div class="right">
+							<div class="secondTitle">建模因子及权重</div>
+							<div class="rightContainer">
+								<div class="rightRow" style="padding-top:0px;">
+									<div class="left">用户状态编码</div>
+									<div class="right">
+										<div class="right weight12"></div>
+										<div class="right weight">4.70%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">语音出账收入</div>
+									<div class="right">
+										<div class="right weight11"></div>
+										<div class="right weight">4.65%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">包外流量（当月）</div>
+									<div class="right">
+										<div class="right weight10"></div>
+										<div class="right weight">4.15%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">被动语音号码规模</div>
+									<div class="right">
+										<div class="right weight9"></div>
+										<div class="right weight">3.32%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">欠费标识</div>
+									<div class="right">
+										<div class="right weight8"></div>
+										<div class="right weight">3.13%</div>
+									</div>
+								</div>
+																<div class="rightRow">
+									<div class="left">主动语音号码规模</div>
+									<div class="right">
+										<div class="right weight7"></div>
+										<div class="right weight">2.90%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">当月累计超套包语音用户</div>
+									<div class="right">
+										<div class="right weight6"></div>
+										<div class="right weight">2.71%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">信用度</div>
+									<div class="right">
+										<div class="right weight5"></div>
+										<div class="right weight">2.49%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">套餐流量（M）</div>
+									<div class="right">
+										<div class="right weight4"></div>
+										<div class="right weight">2.05%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left">本月累计新增赠款</div>
+									<div class="right">
+										<div class="right weight3"></div>
+										<div class="right weight">2.02%</div>
+									</div>
+								</div>
+								<div class="rightRow">
+									<div class="left" id="moreTrigger" style="cursor: pointer">
+										<div class="row3Txt">More</div>
+										<div class="etcModel2"></div>
+									</div>
+								</div>
+							</div>
+							<div id="moreWeights">
+								<div id="modelComponent" class="moreWeightShow hide" style="width: 265px;height: 355px;">
+									<div class="rightRow">
+										<div class="left2">流量费出账收入</div>
+										<div class="right">
+											<div class="right weight_10"></div>
+											<div class="right white">1.83%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">是否银行托收</div>
+										<div class="right">
+											<div class="right weight_9"></div>
+											<div class="right white">1.81%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">本月充值金额</div>
+										<div class="right">
+											<div class="right weight_8"></div>
+											<div class="right white">1.81%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">是否统一付费</div>
+										<div class="right">
+											<div class="right weight_7"></div>
+											<div class="right white">1.79%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">累计充值次数</div>
+										<div class="right">
+											<div class="right weight_6"></div>
+											<div class="right white">1.6%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">套餐语音</div>
+										<div class="right">
+											<div class="right weight_5"></div>
+											<div class="right white">1.57%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">亲友网内通话时长</div>
+										<div class="right">
+											<div class="right weight_4"></div>
+											<div class="right white">1.55%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">是否APN</div>
+										<div class="right">
+											<div class="right weight_3"></div>
+											<div class="right white">1.52%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">本地通话出账收入</div>
+										<div class="right">
+											<div class="right weight_2"></div>
+											<div class="right white">1.51%</div>
+										</div>
+									</div>
+									<div class="rightRow">
+										<div class="left2">初始靓号预存款</div>
+										<div class="right">
+											<div class="right weight_1"></div>
+											<div class="right white">1.51%</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="resultComponent" class="section">
+						<div class="title"><img src="img/result-title.png"></div>
+						<div class="resultInfo">
+							<div class="total">采集500万条用户数据</div>
+							<div class="predict">预测流失10万用户</div>
+							<div class="result">实际流失7.69万用户</div>
+							<div class="hitRatio">命中率 76.9%</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+var _style = [ 'background-color:#00538a; font-family: 微软雅黑;font-weight: blod;color:rgb(158, 217, 255);text-align:left;padding: 15px 15px 15px 15px;', '#00538a' ];
+$(function(){
+	$("#divPageAwayBody").fullpage({
+		verticalCentered:false,
+		'navigation':true,
+		anchors: ['page1', 'page2', 'page3', 'page4'],
+		navigationPosition: 'right'
+	});
+	
+	for(var i=1;i<10;i++){
+		var cls=-1;
+		$("#liStart"+i).hover(function(){
+			clearInterval(strTime);	//暂时关闭计时器
+			var j=$(this).attr("id").substr(7,1);
+			cls=layer.tips($("#msg"+j).html(),this,{
+				guide:2,
+				style:_style,
+				maxWidth:234
+			});
+			$(this).animate({'font-size':'16px'}, 300);
+			$(this).removeClass('liStart'+j).addClass('liStart'+j+"_"+j);
+		},function(){
+			startInterval();  //恢复计时器
+			layer.close(cls);
+			$(this).animate({'font-size':'10px'}, 300).finish();
+			$(this).removeClass().addClass($(this).attr('id'));
+		});
+	}
+});
+var count=1;
+var strTime;
+function imgStart(){
+	// layer.close(layerIndex);
+	var strCount=count-1;
+	console.log("count:"+count);
+	var layerIndex=layer.tips($("#msg"+count).html(),$("#liStart"+count),{guide:2,style:_style,maxWidth:234});
+	$("#liStart"+count).animate({'font-size':'16px'}, 300);
+	$("#liStart"+count).removeClass().addClass("liStart"+count+"_"+count);
+	console.log("strCount:"+strCount);
+	$("#liStart"+strCount).animate({'font-size':'10px'}, 300);
+	$("#liStart"+strCount).removeClass().addClass("liStart"+strCount);
+	count++;
+	if(count>9){
+		count=1;
+	}
+}
+function startInterval(){
+	strTime=self.setInterval("imgStart();",2000);
+}
+startInterval();
+//page3
+var juece;
+$("#strategyModel").hover(function(){
+	juece=layer.tips($("#strategyModels").html(),$("#strategyModel"),{guide:2,style:_style,maxWidth:320});	
+},function(){
+	layer.close(juece);
+});
+var moreinfo;
+$("#moreTrigger").hover(function(){
+	// layer.tips($("#moreWeights").html(),$(this).parent().parent(),{guide:1,isGuide:false,style:_style});
+	jQuery.layer({
+		type:4,
+		closeBtn:[0,false],
+		fix:true,
+		btns:0,
+		shade:[0],
+		bgcolor:'#00538a',
+		tips:{
+			msg:$("#moreWeights").html(),
+			follow:jQuery(this).parent().parent(),
+			guide:3,
+			isGuide:false,
+			more:true,
+			style:_style
+		}
+	});
+},function(){
+	layer.close(moreinfo);
+});
+function addFloorSelectedStatus(obj){
+	obj.children().stop(true,true).animate({'height':0,'top':24},200,function(){
+		var clsn=$(this).parent().attr('class');
+		$(this).addClass(clsn+'Selected');
+		var nspan=$(this).find(".n-selected");
+		nspan.removeClass('show').addClass('hide');
+		var sspan=$(this).find('.selected');
+		sspan.removeClass('hide').addClass('show');
+	}).animate({'height':49,'top':0}, 200);
+}
+function removeFloorSelectedStatus(obj){
+	obj.children().stop(true,true).animate({'height':0,'top':24},200,function(){
+		var clsn=$(this).parent().attr('class');
+		$(this).removeClass(clsn+'Selected');
+		var nspan=$(this).find(".n-selected");
+		nspan.removeClass('hide').addClass('show');
+		var sspan=$(this).find('.selected');
+		sspan.removeClass('show').addClass('hide');
+	}).animate({'height':49,'top':0},200);
+}
+jQuery(".floor>div[class^='floor']").hover(function() {
+	addFloorSelectedStatus($(this));
+}, function() {	
+	removeFloorSelectedStatus($(this));
+});
+</script>
+</body>
+</html>

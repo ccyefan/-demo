@@ -1,0 +1,1000 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>计算和存储能力</title>
+    <link rel="stylesheet" type="text/css" href="http://211.95.193.104:8081/ctsp/isap/machine/visual/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://211.95.193.104:8081/ctsp/isap/machine/visual/css/style.css">
+    <script type="text/javascript" src="http://211.95.193.104:8081/ctsp/isap/machine/visual/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://211.95.193.104:8081/ctsp/isap/machine/visual/js/echarts.js"></script>
+    <script type="text/javascript" src="http://211.95.193.104:8081/ctsp/isap/machine/visual/js/theme.js"></script>
+    <script type="text/javascript">
+    /* function openMask(){
+        
+        jQuery('.machineMask').show();
+        jQuery('.t_dialog').show();
+        jQuery('.t_dialog').css('cursor','wait');
+    } */
+    </script>
+    <script data-require-id="echarts/chart/line" src="http://211.95.193.104:8081/ctsp/isap/machine/visual/js/chart/line.js" async=""></script>
+    <script data-require-id="echarts/chart/bar" src="http://211.95.193.104:8081/ctsp/isap/machine/visual/js/chart/bar.js" async=""></script>
+</head>
+
+<body>
+    <!--<div class="top"></div>  -->
+    <div class="content-n index">
+        <div class="title-area">
+            <h2>计算和存储能力</h2>
+            <p id="groupAndmachine">分组:<span style="font-size:16px;">11</span>组<span>|</span>机器台:<span style="font-size:16px;">106</span>台</p>
+        </div>
+        <ul class="chart-area clearfix">
+            <li>
+                <h3>CPU使用率(%)</h3>
+                <div style="position:relative;">
+                    <div id="cpu01" style="height: 110px; margin: 0px auto; width: 546.4px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; cursor: default; background-color: transparent;" _echarts_instance_="1463455895427">
+                        <div style="position: relative; overflow: hidden; width: 546px; height: 110px;">
+                            <div data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none;"></div>
+                            <canvas width="546" height="110" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="110" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="110" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <div class="echarts-tooltip" style="position: absolute; display: none; border: 0px solid rgb(51, 51, 51); white-space: nowrap; transition: left 0.4s, top 0.4s; border-radius: 4px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Verdana, sans-serif; padding: 5px; left: 296px; top: 27px; background-color: rgba(250, 250, 250, 0.8);">13:43 : 6.61 %</div>
+                        </div>
+                    </div>
+                    <div id="cpu02" style="height: 125px; margin: 0px auto; width: 546.4px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; cursor: default; background-color: transparent;" _echarts_instance_="1463455895428">
+                        <div style="position: relative; overflow: hidden; width: 546px; height: 125px;">
+                            <div data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none;"></div>
+                            <canvas width="546" height="125" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="125" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="125" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <div class="echarts-tooltip" style="position: absolute; display: none; border: 0px solid rgb(51, 51, 51); white-space: nowrap; transition: left 0.4s, top 0.4s; border-radius: 4px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Verdana, sans-serif; padding: 5px; left: 310px; top: 96px; background-color: rgba(250, 250, 250, 0.8);">132.121.86.88 : 8</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h3>内存使用率(%)</h3>
+                <div style="position:relative;">
+                    <div id="memory01" style="height: 110px; margin: 0px auto; width: 546.4px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; cursor: default; background-color: transparent;" _echarts_instance_="1463455895425">
+                        <div style="position: relative; overflow: hidden; width: 546px; height: 110px;">
+                            <div data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none;"></div>
+                            <canvas width="546" height="110" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="110" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="110" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 110px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <div class="echarts-tooltip" style="position: absolute; display: none; border: 0px solid rgb(51, 51, 51); white-space: nowrap; transition: left 0.4s, top 0.4s; border-radius: 4px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Verdana, sans-serif; padding: 5px; left: 105px; top: 59px; background-color: rgba(250, 250, 250, 0.8);">10:51 : 14.94 %</div>
+                        </div>
+                    </div>
+                    <div id="memory02" style="height: 125px; margin: 0px auto; width: 546.4px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; cursor: default; background-color: transparent;" _echarts_instance_="1463455895426">
+                        <div style="position: relative; overflow: hidden; width: 546px; height: 125px;">
+                            <div data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none;"></div>
+                            <canvas width="546" height="125" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="125" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="125" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 125px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <div class="echarts-tooltip" style="position: absolute; display: none; border: 0px solid rgb(51, 51, 51); white-space: nowrap; transition: left 0.4s, top 0.4s; border-radius: 4px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Verdana, sans-serif; padding: 5px; left: 310px; top: 66px; background-color: rgba(250, 250, 250, 0.8);">132.121.86.10 : 10</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h3>磁盘I/O速度(mb/s)</h3>
+                <div style="position:relative;">
+                    <div id="disc" style="height: 235px; margin: 0px auto; width: 546.4px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; cursor: default; background-color: transparent;" _echarts_instance_="1463455895424">
+                        <div style="position: relative; overflow: hidden; width: 546px; height: 235px;">
+                            <div data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none;"></div>
+                            <canvas width="546" height="235" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="235" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="235" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <div class="echarts-tooltip" style="position: absolute; display: none; border: 0px solid rgb(51, 51, 51); white-space: nowrap; transition: left 0.4s, top 0.4s; border-radius: 4px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Verdana, sans-serif; padding: 5px; left: 312px; top: 164px; background-color: rgba(250, 250, 250, 0.8);">13:07 : 747.78 M</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <h3>网络综合指标(mb/s)</h3>
+                <div style="position:relative;">
+                    <div id="network" style="height: 235px; margin: 0px auto; width: 546.4px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; cursor: default; background-color: transparent;" _echarts_instance_="1463455895423">
+                        <div style="position: relative; overflow: hidden; width: 546px; height: 235px;">
+                            <div data-zr-dom-id="bg" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none;"></div>
+                            <canvas width="546" height="235" data-zr-dom-id="0" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="235" data-zr-dom-id="1" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <canvas width="546" height="235" data-zr-dom-id="_zrender_hover_" style="position: absolute; left: 0px; top: 0px; width: 546px; height: 235px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
+                            <div class="echarts-tooltip" style="position: absolute; display: none; border: 0px solid rgb(51, 51, 51); white-space: nowrap; transition: left 0.4s, top 0.4s; border-radius: 4px; color: rgb(51, 51, 51); font-family: 微软雅黑, Arial, Verdana, sans-serif; padding: 5px; left: 329px; top: 120px; background-color: rgba(250, 250, 250, 0.8);">13:09 : 1,486.89 M</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="pop-up machineMask">
+        <div style="left:50%;  margin-left:-40px; padding:0; position:absolute; top:185px; z-index:4;"><span style="font-size:16px;color:white;">请稍后&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.&nbsp;.</span></div>
+    </div>
+    <div class="t_dialog"></div>
+    <script language="javascript">
+    jQuery(document).ready(function() {
+
+        //设置图表宽度
+        jQuery("#cpu01").css('width', screen.width / 2.5);
+        jQuery("#cpu011").css('width', screen.width / 2.5);
+        jQuery("#cpu02").css('width', screen.width / 2.5);
+        jQuery("#memory01").css('width', screen.width / 2.5);
+        jQuery("#memory11").css('width', screen.width / 2.5);
+        jQuery("#memory02").css('width', screen.width / 2.5);
+        jQuery("#disc").css('width', screen.width / 2.5);
+        jQuery("#disc11").css('width', screen.width / 2.5);
+        jQuery("#network").css('width', screen.width / 2.5);
+        jQuery("#network11").css('width', screen.width / 2.5);
+
+        //echarts 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://211.95.193.104:8081/ctsp/isap/machine/visual/js'
+            }
+        });
+
+        getCpu();
+        getMemroy();
+        getDiskIO();
+        getNetwork();
+    });
+
+    function getCpu() {
+        //时间轴
+        var axisData = ["0:0"];
+        //时间轴对应的指标数据
+        var metricData = [0];
+
+        //top数据
+        var topData = ["0.0.0.0"];
+        //top对应的指标数据
+        var topMetricData = [0];
+        require(
+            [
+                'echarts',
+                'echarts/chart/line', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/bar'
+            ],
+            function(ec) {
+                option1 = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c} %'
+                            /* formatter: function (params) {
+                        //var res = params[0].name;
+                        var res =  params[0].seriesName +":"+ params[0].value;
+                        return res;
+                    } */
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 30
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: true
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : resultdata.axisDataList
+                        data: axisData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        //max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    //series : resultdata.serviceDataBeanList1
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    type: 'default'
+                                }
+                            }
+                        },
+                        data: metricData,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        }
+                    }]
+                };
+
+
+                option2 = {
+                    backgroundColor: 'transparent',
+                    title: {
+                        text: 'TOP 10',
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#cdcdcd'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c}'
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 40,
+                        x2: 55,
+                        y2: 25
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        position: 'bottom',
+                        boundaryGap: true,
+                        axisLabel: {
+                            show: true
+                        },
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : axisData
+                        data: topData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        max: 100,
+                        type: 'value',
+                        scale: true,
+                        //splitNumber: 4,  //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        /* axisLabel: {
+                            formatter: function (v) {
+                                return Math.round(v/10000) + ' 万'
+                            }
+                        }, */
+                        //axisLabel : v,
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    series: [{
+                        name: 'CPU',
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: function(params) {
+                                    // build a color map as your need.
+                                    var colorList = [
+                                        '#FE8463', '#FAD860', '#60C0DD', '#0084C6', '#D7504B', '#C6E579', '#26C0C0', '#F0805A', '#F4E001', '#B5C334', '#8B44D3', '#D344C7', '#A94544', '#FF5941', '#9BCA63'
+                                    ];
+                                    return colorList[params.dataIndex]
+                                },
+                                label: {
+                                    show: true,
+                                    position: 'top',
+                                    formatter: '{c}'
+                                }
+                            }
+                        },
+                        data: topMetricData,
+                        markPoint: {
+                            data: [{
+                                type: 'max',
+                                name: '最大值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#FE8463'
+                                    }
+                                }
+                            }, {
+                                type: 'min',
+                                name: '最小值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#9BCA63'
+                                    }
+                                }
+                            }]
+                        },
+                    }]
+                };
+
+                // 基于准备好的dom，初始化echarts图表
+                var myChart1 = ec.init(document.getElementById('cpu01'), e_dark);
+                // 为echarts对象加载数据 
+                myChart1.setOption(option1);
+
+                var myChart2 = ec.init(document.getElementById('cpu02'), e_dark);
+                myChart2.setOption(option2);
+
+                jQuery.ajax({
+                    type: "post",
+                    url: 'http://211.95.193.104:8081/ctsp/getAllMetricHistoryInfo',
+                    dataType: 'json',
+                    //async:false,
+                    data: "metricType=CPU_USAGE&flag=true",
+                    success: function(data) {
+                        $('#cpu011').remove();
+                        var resultFlag = data.result;
+                        var resultdata = data.data; // 返回的饼图结果
+                        //ajax请求成功后加载饼图
+                        if (resultFlag == 'OK') {
+
+                            //时间轴
+                            var axisData = resultdata.timeAxisList;
+                            //var axisData = ["20:10","20:11","20:12","20:13","20:14","20:15"];
+                            //时间轴对应的指标数据
+                            var metricData = resultdata.metricList;
+                            //var metricData = [20,50,90,70,40,30];
+                            option1.xAxis[0].data = axisData;
+                            option1.series[0].data = metricData;
+                            myChart1.setOption(option1);
+
+                            //top数据
+                            var topData = resultdata.topList;
+                            //var topData = ["132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74"];
+                            //top对应的指标数据
+                            var topMetricData = resultdata.topMetricList;
+                            option2.xAxis[0].data = topData;
+                            option2.series[0].data = topMetricData;
+                            myChart2.setOption(option2);
+
+                            var intervalId = '';
+                            clearInterval(intervalId);
+                            intervalId = setInterval(function() {
+                                var xLength = myChart1.getOption().xAxis[0].data.length;
+                                // 动态数据接口 addData
+                                jQuery.ajax({
+                                    type: "post",
+                                    //async:false,
+                                    url: 'http://211.95.193.104:8081/ctsp/queryAllMetricHistoryInfo',
+                                    dataType: 'json',
+                                    data: "metricType=CPU_USAGE&flag=false",
+                                    success: function(data) {
+                                        var resultFlag = data.result;
+                                        var resultdata = data.data; // 返回的饼图结果
+                                        //ajax请求成功后加载饼图
+                                        if (resultFlag == 'OK') {
+                                            if (xLength < 10) {
+                                                myChart1.addData(
+                                                    //sumObj
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            true, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            } else {
+                                                myChart1.addData(
+                                                    //sumObj
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            false, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            }
+
+
+                                            option2.series[0].data = resultdata.topMetricList;
+                                            option2.xAxis[0].data = resultdata.topList;
+                                            myChart2.setOption(option2);
+                                        }
+                                    }
+                                });
+                            }, 1000 * 60);
+                        }
+                    }
+                });
+            }
+        );
+
+    }
+
+    function getMemroy() {
+        //时间轴
+        var axisData = ["0:0"];
+        //时间轴对应的指标数据
+        var metricData = [0];
+
+        //top数据
+        var topData = ["0.0.0.0"];
+        //top对应的指标数据
+        var topMetricData = [0];
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/line', // 使用柱状图就加载bar模块，按需加载
+                'echarts/chart/bar'
+            ],
+            function(ec) {
+                option3 = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c} %'
+                            /* formatter: function (params) {
+                                //var res = params[0].name;
+                                var res =  params[0].seriesName +":"+ params[0].value;
+                                return res;
+                            } */
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 30
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : resultdata.axisDataList
+                        data: axisData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        // max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    //series : resultdata.serviceDataBeanList1
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    type: 'default'
+                                }
+                            }
+                        },
+                        data: metricData,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        }
+                    }]
+                };
+
+
+                option4 = {
+                    backgroundColor: 'transparent',
+                    title: {
+                        text: 'TOP 10',
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#cdcdcd'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c}'
+                    },
+                    calculable: true,
+                    grid: {
+                        x: 66,
+                        y: 40,
+                        x2: 55,
+                        y2: 25
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        position: 'bottom',
+                        boundaryGap: true,
+                        axisLabel: {
+                            show: true
+                        },
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : axisData
+                        data: topData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        max: 100,
+                        type: 'value',
+                        scale: true,
+                        //splitNumber: 4,  //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        /* axisLabel: {
+                            formatter: function (v) {
+                                return Math.round(v/10000) + ' 万'
+                            }
+                        }, */
+                        //axisLabel : v,
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    //series : resultdata.serviceDataBeanList2
+                    series: [{
+                        name: '内存',
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: function(params) {
+                                    // build a color map as your need.
+                                    var colorList = [
+                                        '#FE8463', '#FAD860', '#60C0DD', '#0084C6', '#D7504B', '#C6E579', '#26C0C0', '#F0805A', '#F4E001', '#B5C334', '#8B44D3', '#D344C7', '#A94544', '#FF5941', '#9BCA63'
+                                    ];
+                                    return colorList[params.dataIndex]
+                                },
+                                label: {
+                                    show: true,
+                                    position: 'top',
+                                    formatter: '{c}'
+                                }
+                            }
+                        },
+                        data: topMetricData,
+                        markPoint: {
+                            data: [{
+                                type: 'max',
+                                name: '最大值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#FE8463'
+                                    }
+                                }
+                            }, {
+                                type: 'min',
+                                name: '最小值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#9BCA63'
+                                    }
+                                }
+                            }]
+                        },
+                    }]
+                };
+
+                var myChart3 = ec.init(document.getElementById('memory01'), e_dark);
+                myChart3.setOption(option3);
+
+                var myChart4 = ec.init(document.getElementById('memory02'), e_dark);
+                myChart4.setOption(option4);
+
+
+                jQuery.ajax({
+                    type: "post",
+                    url: 'http://211.95.193.104:8081/ctsp/getAllMetricHistoryInfo',
+                    dataType: 'json',
+                    //async:false,
+                    data: "metricType=MEMORY_USAGE&flag=true",
+                    success: function(data) {
+                        $('#memory11').remove();
+                        var resultFlag = data.result;
+                        var resultdata = data.data; // 返回的饼图结果
+                        //ajax请求成功后加载饼图
+                        if (resultFlag == 'OK') {
+                            //时间轴
+                            var axisData = resultdata.timeAxisList;
+                            //var axisData = ["20:10","20:11","20:12","20:13","20:14","20:15"];
+                            //时间轴对应的指标数据
+                            var metricData = resultdata.metricList;
+                            //var metricData = [20,50,90,70,40,30];
+
+                            //top数据
+                            var topData = resultdata.topList;
+                            //var topData = ["132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74","132.121.86.74"];
+                            //top对应的指标数据
+                            var topMetricData = resultdata.topMetricList;
+                            //var topMetricData = [90,70,40,50,60];
+                            option3.xAxis[0].data = axisData;
+                            option3.series[0].data = metricData;
+                            myChart3.setOption(option3);
+
+                            option4.xAxis[0].data = topData;
+                            option4.series[0].data = topMetricData;
+                            myChart4.setOption(option4);
+
+                            var timeTicket;
+                            clearInterval(timeTicket);
+                            timeTicket = setInterval(function() {
+                                var xLength = myChart3.getOption().xAxis[0].data.length;
+                                // 动态数据接口 addData
+                                jQuery.ajax({
+                                    type: "post",
+                                    //async:false,
+                                    url: 'http://211.95.193.104:8081/ctsp/queryAllMetricHistoryInfo',
+                                    dataType: 'json',
+                                    data: "metricType=MEMORY_USAGE&flag=false",
+                                    success: function(data) {
+                                        var resultFlag = data.result;
+                                        var resultdata = data.data; // 返回的饼图结果
+                                        //ajax请求成功后加载饼图
+                                        if (resultFlag == 'OK') {
+                                            if (xLength < 10) {
+                                                myChart3.addData(
+                                                    //sumObj
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            true, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            } else {
+                                                myChart3.addData(
+                                                    //sumObj
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            false, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            }
+
+
+                                            option4.series[0].data = resultdata.topMetricList;
+                                            option4.xAxis[0].data = resultdata.topList;
+                                            myChart4.setOption(option4);
+                                        }
+                                    }
+                                });
+                            }, 1000 * 60); //1分钟获取一次，时间粒度改成1分钟
+                        }
+                    }
+                });
+            });
+    }
+
+    function getDiskIO() {
+        //时间轴
+        var axisData = ["0:0"];
+        //时间轴对应的指标数据
+        var metricData = [0];
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/line'
+            ],
+            function(ec) {
+                option5 = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c} M'
+                            /* formatter: function (params) {
+                                //var res = params[0].name;
+                                var res =  params[0].seriesName +":"+ params[0].value;
+                                return res;
+                            } */
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 40
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : resultdata.axisDataList
+                        data: axisData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        //max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} M'
+                        }
+                    }],
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        //itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                        data: metricData,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        }
+                    }]
+                };
+
+
+
+                // 基于准备好的dom，初始化echarts图表
+                var myChart5 = ec.init(document.getElementById('disc'), e_dark);
+                // 为echarts对象加载数据 
+                myChart5.setOption(option5);
+
+                jQuery.ajax({
+                    type: "post",
+                    url: 'http://211.95.193.104:8081/ctsp/getAllMetricHistoryInfo',
+                    dataType: 'json',
+                    //async:false,
+                    data: "metricType=DISK_IO&flag=true",
+                    success: function(data) {
+                        $("#disc11").remove();
+                        var resultFlag = data.result;
+                        var resultdata = data.data; // 返回的饼图结果
+                        //ajax请求成功后加载饼图
+                        if (resultFlag == 'OK') {
+                            //时间轴
+                            var axisData = resultdata.timeAxisList;
+                            //var axisData = ["20:10","20:11","20:12","20:13","20:14","20:15"];
+                            //时间轴对应的指标数据
+                            var metricData = resultdata.metricList;
+                            //var metricData = [20,50,90,70,40,30];
+
+                            option5.series[0].data = metricData;
+                            option5.xAxis[0].data = axisData;
+                            myChart5.setOption(option5);
+
+                            var timeTicket;
+                            clearInterval(timeTicket);
+                            timeTicket = setInterval(function() {
+                                var xLength = myChart5.getOption().xAxis[0].data.length;
+                                // 动态数据接口 addData
+                                jQuery.ajax({
+                                    type: "post",
+                                    //async:false,
+                                    url: 'http://211.95.193.104:8081/ctsp/queryAllMetricHistoryInfo',
+                                    dataType: 'json',
+                                    data: "metricType=DISK_IO&flag=false",
+                                    success: function(data) {
+                                        var resultFlag = data.result;
+                                        var resultdata = data.data; // 返回的饼图结果
+                                        //ajax请求成功后加载饼图
+                                        if (resultFlag == 'OK') {
+                                            if (xLength < 10) {
+                                                myChart5.addData(
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            true, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            } else {
+                                                myChart5.addData(
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            false, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            }
+
+                                        }
+                                    }
+                                });
+                            }, 1000 * 60); //1分钟获取一次，时间粒度改成1分钟
+                        }
+                    }
+                });
+
+            }
+        );
+    }
+
+
+    function getNetwork() {
+        //时间轴
+        var axisData = ["0:0"];
+        //时间轴对应的指标数据
+        var metricData = [0];
+
+        require(
+            [
+                'echarts',
+                'echarts/chart/line'
+            ],
+            function(ec) {
+                option6 = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c} M'
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 40
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        data: axisData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        //max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} M'
+                        }
+                    }],
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        data: metricData,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        }
+                    }]
+                };
+
+
+
+                // 基于准备好的dom，初始化echarts图表
+                var myChart6 = ec.init(document.getElementById('network'), e_dark);
+                // 为echarts对象加载数据 
+                myChart6.setOption(option6);
+
+                jQuery.ajax({
+                    type: "post",
+                    url: 'http://211.95.193.104:8081/ctsp/getAllMetricHistoryInfo',
+                    dataType: 'json',
+                    //async:false,
+                    data: "metricType=NETWORK&flag=true",
+                    success: function(data) {
+                        $("#network11").remove();
+                        var resultFlag = data.result;
+                        var resultdata = data.data; // 返回的饼图结果
+                        //ajax请求成功后加载饼图
+                        if (resultFlag == 'OK') {
+                            //时间轴
+                            var axisData = resultdata.timeAxisList;
+                            //时间轴对应的指标数据
+                            var metricData = resultdata.metricList;
+
+                            option6.series[0].data = metricData;
+                            option6.xAxis[0].data = axisData;
+                            myChart6.setOption(option6);
+
+                            var timeTicket;
+                            clearInterval(timeTicket);
+                            timeTicket = setInterval(function() {
+                                var xLength = myChart6.getOption().xAxis[0].data.length;
+                                // 动态数据接口 addData
+                                jQuery.ajax({
+                                    type: "post",
+                                    //async:false,
+                                    url: 'http://211.95.193.104:8081/ctsp/queryAllMetricHistoryInfo',
+                                    dataType: 'json',
+                                    data: "metricType=NETWORK&flag=false",
+                                    success: function(data) {
+                                        var resultFlag = data.result;
+                                        var resultdata = data.data; // 返回的饼图结果
+                                        //ajax请求成功后加载饼图
+                                        if (resultFlag == 'OK') {
+                                            if (xLength < 10) {
+                                                myChart6.addData(
+                                                    //sumObj
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            true, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            } else {
+                                                myChart6.addData(
+                                                    //sumObj
+                                                    [
+                                                        [0, // 系列索引
+                                                            resultdata.metricList[0], //option.series[0].data[lastIndex%len], // 新增数据
+                                                            false, // 新增数据是否从队列头部插入
+                                                            false, // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+                                                            resultdata.timeAxisList[0] //option.xAxis[0].data[lastIndex%len]]  
+                                                        ]
+                                                    ]
+                                                );
+                                            }
+                                        }
+                                    }
+                                });
+                            }, 1000 * 60); //1分钟获取一次，时间粒度改成1分钟
+                        }
+                    }
+                });
+            });
+    }
+    </script>
+</body>
+
+</html>

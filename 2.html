@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/jquery.min.js"></script>
+	<style type="text/css">
+	body {
+	    font-size: 14px;
+	    color: #797979;
+	    background: #444A69 url(img/bg.jpg) no-repeat top center;
+	    font-family: 'Microsoft YaHei';
+	    overflow: hidden;
+	    text-align: center;
+	}
+	
+	#divWrap {
+	    width: 100%;
+	    min-height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	}
+	
+	.divHorizontalLine {
+	    width: 100%;
+	    height: 2px;
+	    background-color: #BBB;
+	}
+	
+	#divFooterContent {
+	    text-align: center;
+	}
+	
+	#Header {
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    width: 100%;
+	    height: 54px;
+	    background: url(img/navigate_backgroud.png) repeat;
+	    background-position: 0px 0px;
+	    box-shadow: 0px 0px 4px #999;
+	}
+	
+	#NativeMenu {
+	    line-height: 40px;
+	    color: #FFFFFF;
+	    position: absolute;
+	    right: 300px;
+	    top: 0px;
+	}
+	
+	#divPageBody {
+	    width: 100%;
+	    margin-top: 54px;
+	}
+	
+	#divWithoutMenu {
+	    width: 100%;
+	    background: #9H9H9J;
+	    border: 0px solid #DDD;
+	    overflow: hidden;
+	}
+
+	#divPageAwayBody{
+		background: url(img/bgModel.png) center top no-repeat;
+		background-size: cover;
+		z-index: -2;
+		height: 1926px;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	..fp-section{
+		position: relative;
+		-webkit-box-sizing:border-box;
+	}
+	.fp-section.fp-table, .fp-slide.fp-table{
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+	}
+	#container{
+		width: 1100px;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	.fp-tableCell{
+		/*display: table-cell;*/
+		vertical-align: middle;
+		width: 100%;
+		height: 100%;
+	}
+	#colAndPro{
+		width: 100%;
+		height: 356px;
+		float: none;
+		clear: both;
+	}
+	#dataShareContainer{
+		width: 100%;
+		height: 234px;
+		float: none;
+		clear: both;
+		margin-top: -119px;
+	}
+	#dataCollection{
+		position: relative;
+		width: 520px;
+		height: 356px;
+		z-index: 3;
+		float: left;
+	}
+	#collection2process{
+		position: relative;
+		/*width: 381px;*/
+		height: 133px;
+		left: -167px;
+		top: 146px;
+		float: left;
+		background: url(img/coll2process.png) center top no-repeat;
+		z-index: 2;
+	}
+	#dataProcess{
+		position: relative;
+		left: 520px;
+		top: 0px;
+		width: 580px;
+		height: 356px;
+	}
+	#pro_bg{
+		position: absolute;
+		left: 143px;
+		top:108px;
+		width: 239px;
+		height: 246px;
+		background: url(img/pro_bg.png) left top no-repeat;
+		z-index: 1;
+	}
+	#pro_obj{
+		left: 166px;
+		top: 204px;
+		cursor: text;
+		width: 42px;
+		height: 42px;
+		background: url(img/obj_txt_bg02.png) no-repeat;
+		padding-top: 6px;
+		position: absolute;
+		font-size: 12px;
+		line-height: 15px;
+		z-index: 6;
+	}
+	#pro_objs{
+		position: absolute;
+		top: 104px;
+		width: 128px;
+		height: 100px;
+		background:  url(img/pro_objs_bg.png) left top no-repeat;
+		display: none;
+		z-index: 3;
+	}
+	#pro_objs .obj{
+		 width: 128px;
+		 height: 29px;
+		 line-height: 29px;
+		 text-indent: 37px;
+		 text-align: left;
+		 font-size: 14px;
+		 padding-bottom: 6px;
+	}
+	#pro_method{
+		left: 217px;
+		top: 296px;
+	}
+	#pro_methods{
+		position: absolute;
+		left: 206px;
+		top: 250px;
+		width: 320px;
+		height: 108px;
+		display: none;
+		font-size: 13px;
+		line-height: 22px;
+		text-align: right;
+		z-index: 5;
+	}
+	#pro_methods .methodWrapper{
+		width: 276px;
+		height: 78px;
+		background: url(img/pro_method_bg.png) center top no-repeat;
+		margin-left: 44px;
+		margin-top: 20px;
+	}
+	#pro_methods .method{
+		margin-top: 1px;
+		width: 264px;
+		margin-bottom: 6px;
+	}
+	#dc_bg{
+		position: absolute;
+		width: 224px;
+		height: 230px;
+		left: 201px;
+		top:82px;
+		background-image: url(img/col_bg.png);
+	}
+	#leftTip{
+		position: absolute;
+		width: 184px;
+		height: 103px;
+		top: 130px;
+		left: 32px;
+		background-image: url(img/col_obj_bg.png);
+	}
+	#leftTip .leftTipTxt{
+		width: 85px;
+		font-size: 14px;
+		padding-left: 41px;
+		text-align: left;
+		line-height: 29px;
+		padding-bottom: 8px;
+	}
+	.tipTxtWhite{
+		font-size: 14px;
+		color: white;
+	}
+	.tipTxtWhite .outstanding{
+		font-size: 18px;
+	}
+	#pro_performs{
+		position: absolute;
+		top: 26px;
+		left: 24px;
+		width: 425px;
+		height: 200px;
+		background: url(img/pro_performs_obj.png) left top no-repeat;
+		display: none;
+		z-index: 5;
+	}
+	#pro_performs .row1{
+		clear: both;
+		float: none;
+		width: 425px;
+		height: 25px;
+		line-height: 25px;
+	}
+	#pro_performs .row2{
+		clear: both;
+		float: none;
+		width: 425px;
+		height: 25px;
+		line-height: 25px;
+		position: relative;
+		top: -10px;
+	}
+	#pro_performs .row1 .tip1{
+		float: left;
+		width: 188px;
+		height: 40px;
+	}
+	#pro_performs .row1 .tip2{
+		float: left;
+		width: 188px;
+		height: 40px;
+		padding-left: 44px;
+	}
+	#pro_performs .row2 .tip1{
+		float: left;
+		width: 188px;
+		height: 47px;
+		padding-left: 12px;
+	}
+	#pro_performs .row2 .tip2{
+		float: left;
+		width: 188px;
+		height: 47px;
+		padding-left: 19px;
+		margin-top: -3px;
+	}
+	#pro_performs .outstanding{
+		font-size: 17px;
+	}
+	#topTip{
+		position: absolute;
+		width: 399px;
+		height: 220px;
+		top: 8px;
+		left: 124px;
+		background: url(img/col_performance_bg.png) left top no-repeat;
+		display: none;
+		z-index: 5;
+	}
+	#topTip .row1{
+		clear: none;
+		float: none;
+		width: 399px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+	}
+	#topTip .tip1{
+		float: left;
+		width: 189px;
+		height: 100%;
+	}
+	#topTip .tip2{
+		float: left;
+		width: 188px;
+		height: 100%;
+		margin-left: 18px;
+	}
+	
+	#topTip .row2{
+		clear: none;
+		float: none;
+		width: 399px;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+	}
+	#bottomTip{
+		position: absolute;
+		width: 223px;
+		height: 125px;
+		top: 253px;
+		left: 122px;
+		display: none;
+		z-index: 5;
+	}
+	#bottomTip .content{
+		height: 100px;
+		width: 223px;
+		margin-top: 25px;
+		background: url(img/col_method_bg.png) left top no-repeat;
+	}
+	#bottomTip .txt{
+		width: 92px;
+		height: 78px;
+		padding-top: 22px;
+	}
+	#bottomTip .txt .row{
+		width: 100%;
+		height: 22px;
+		line-height: 22px;
+		font-size: 13px;
+		padding-bottom: 6px;
+		padding-left: 8px;
+		text-align: left;
+		position: relative;
+		top:-20px; 
+	}
+	#dcObj{
+		left: 212px;
+		top: 169px;
+		width: 42px;
+		height: 42px;
+		cursor: text;
+		background: url(img/obj_txt_bg01.png) no-repeat;
+		position: absolute;
+		padding-top: 6px;
+		font-size: 12px;
+		line-height: 15px;
+		z-index: 6;
+	}
+	#pro_perform{
+		left: 230px;
+		top: 150px;
+	}
+	#dcPerform{
+		left: 308px;
+		top: 158px;
+	}
+	#dcWay{
+		left: 300px;
+		top: 271px;
+	}
+	#dataShare{
+		width: 100%;
+		height: 100%;
+	}
+	#dataShareLeft{
+		float: left;
+		width: 417px;
+		height: 234px;
+	}
+	#dataShareMiddle{
+		float: left;
+		width: 234px;
+		height: 233px;
+		z-index: 1;
+		background: url(img/ds_bg.png) left top no-repeat;
+	}
+	#dataShareRight{
+		position: relative;
+		float: left;
+		width: 377px;
+		height: 190px;
+		left: -79px;
+		top: 0px;
+		z-index: 5;
+		text-align: left;
+		text-indent: 116px;
+		display: none;
+	}
+	#dataShareBottom{
+		height: 160px;
+		clear: both;
+	}
+	#dataShareMiddleImg{
+	}
+	#dataShareMiddleImg .dsObjContainer{
+		position: relative;
+		left: -87px;
+		top: -128px;
+		width: 450px;
+		height: 425px;
+		clear: both;
+		float: none;
+	}
+	#dsLight{
+		float: right;
+		width: 277px;
+		/*height: 230px;*/
+		background: url(img/ds_light.png) left top no-repeat;
+		/*display: none;*/
+	}
+	#dsObj{
+		float: left;
+		width: 242px;
+		height: 195px;
+		margin-top: -120px;
+	}
+	#dsObjImg{
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background: url(img/ds_obj_bg.png) left top no-repeat;
+		/*display: none;*/
+		overflow: hidden;
+	}
+	#dsObjWrapper{
+		display: none;
+		overflow: hidden;
+		position: relative;
+		width: 242px;
+		height: 195px;
+	}
+	.trigger{
+		width: 36px;
+		height: 36px;
+		background: url(img/obj_txt_bg.png) no-repeat;
+		padding-top: 6px;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		font-size: 12px;
+		line-height: 12px;
+		cursor: pointer;
+		z-index: 99;
+	}
+	.lbValue1, .lbValue2, .lbValue3{
+		position: relative;
+		word-wrap: break-word;
+		word-break: keep-all;
+		overflow: hidden;
+	}
+	.lbValue1{
+		left: 70px;
+		top: -395px;
+		cursor: text;
+		width: 42px;
+		height: 42px;
+		background: url(img/obj_txt_bg03.png) no-repeat;
+		padding-top: 6px;
+		font-size: 12px;
+		line-height: 15px;
+		z-index: 6;
+	}
+	.lbValue2{
+		left: 116px;
+		top: -295px;
+	}
+	.lbValue3{
+		left: 164px;
+		top: -470px;
+	}
+	#rightDiv1{
+		background: url(img/prompt01.png) left top no-repeat;
+		z-index: 2;
+		height: 44px;
+		left: 38px;
+		top: 6px;
+		line-height: 35px;
+		overflow: hidden;
+	}
+	#rightDiv2{
+		background: url(img/prompt02.png) left top no-repeat;
+		z-index: 2;
+		height: 38px;
+		left: 38px;
+		top: -5px;
+		line-height: 28px;
+		overflow: hidden;
+	}
+	#rightDiv3{
+		background: url(img/prompt03.png) left top no-repeat;
+		z-index: 2;
+		height: 36px;
+		left: 39px;
+		top: -16px;
+		line-height: 32px;
+		overflow: hidden;
+	}
+	#rightDiv4{
+		background: url(img/prompt04.png) left top no-repeat;
+		z-index: 2;
+		height: 34px;
+		top: -25px;
+		line-height: 34px;
+		overflow: hidden;
+		left: 32px;
+		text-indent: 124px;
+	}
+	#dataShareRight div{
+		position: relative;
+		color: #ffffff;
+		font-size: 14px;
+	}
+	#dataShareBottomTop{
+		float: left;
+		width: 512px;
+		height: 160px;
+	}
+	#dataShareBottomDown{
+		float: left;
+		height: 76px;
+		width: 300px;
+		position: relative;
+		top: -76px;
+		left: 3px;
+		/*display: none;*/
+		z-index: 5;
+	}
+	#DownLeft{
+		float: left;
+		position: relative;
+		background: url(img/ds_method_bg.png) left top no-repeat;
+		width: 179px;
+		height: 76px;
+		top: 0px;
+		left: 57px;
+		display: none;
+	}
+	#DownLeft .txt{
+		width: 165px;
+		height: 22px;
+		line-height: 22px;
+		text-align: right;
+		font-size: 12px;
+		padding-bottom: 3px;
+	}
+	</style>
+</head>
+<body>
+<div id="divWrap">
+    <div id="Header">
+        <div id="divHeaderOperator"></div>
+    </div>
+    <div id="NativeMenu">
+    </div>
+    <div id="divPageBody" style="min-height:525px;" >
+    	<div id="divWithoutMenu" class="section fullpage-wrapper fp-section active fp-table">
+    		<div id="divPageAwayBody">
+    			<div id="container" style="height: 683px; position: relative; padding-top: 80px; touch-action: none; transform: translate3d(0px, -54px, 0px);">
+    				<div class="fp-tableCell" style="height: 603px;">
+    					<div id="colAndPro">
+    						<div id="dataCollection">
+    							<div id="dc_bg"></div>
+    							<div id="leftTip" style="width: 184px;display: block;">
+    								<div class="leftTipTxt">运营生产记录</div>
+    								<div class="leftTipTxt">网络数据</div>
+    								<div class="leftTipTxt">通信管道数据</div>
+    							</div>
+    							<div id="topTip" class="tipTxtWhite" style="display: none;">
+    								<div class="row1">
+    									<div class="tip1">吞吐量: <span class="outstanding">2TB/天</span></div>
+    									<div class="tip2">文件数: <span class="outstanding">1000万/天</span></div>
+    								</div>
+    								<div class="row2">
+    									<div class="tip1">数据量: <span class="outstanding">200亿条/天</span></div>
+    									<div class="tip2">网络爬取: <span class="outstanding">3000万/天</span></div>
+    								</div>
+    							</div>
+    							<div id="bottomTip" style="display: none;">
+    								<div class="content">
+    									<div class="txt">
+    										<div class="row">爬虫</div>
+    										<div class="row">数据库同步</div>
+    										<div class="row">FTP文件方式</div>
+    									</div>
+    								</div>
+    							</div>
+    							<div id="dcObj">采集<br/>对象</div>
+    							<div id="dcPerform" class="trigger">采集<br/>性能</div>
+    							<div id="dcWay" class="trigger">采集<br/>方式</div>
+    						</div>
+    						<div id="collection2process"></div>
+    						<!-- 数据处理 -->
+    						<div id="dataProcess">
+    							<div id="pro_bg"></div>
+    							<div id="pro_obj">处理<br/>对象</div>
+    							<div id="pro_objs" >
+    								<div class="obj">结构化数据</div>
+    								<div class="obj">非结构化数据</div>
+    								<div class="obj">爬虫数据</div>
+    							</div>
+    							<div id="pro_method" class="trigger">处理<br/>手段</div>
+    							<div id="pro_methods" style="">
+    								<div class="methodWrapper">
+    									<div class="method">机器学习</div>
+    									<div class="method">strom流处理</div>
+    									<div class="method">分布式处理</div>
+
+    								</div>
+    							</div>
+    							<div id="pro_perform" class="trigger">处理<br/>能力</div>
+    							<div id="pro_performs" class="tipTxtWhite">
+    								<div class="row1">
+    									<div class="tip1">数据合并： <span class="outstanding">20万条/秒</span></div>
+    									<div class="tip2">任务批发量： <span class="outstanding">1000个/秒</span></div>
+    								</div>
+    								<div class="row2">
+    									<div class="tip1">ETL清洗：  <span class="outstanding">100万条/秒</span></div>
+    									<div class="tip2">挖掘分析： <span class="outstanding">100万条/秒</span></div>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    					<div id="dataShareContainer">
+    						<div id="dataShare">
+    							<div id="dataShareTop">
+    								<div id="dataShareLeft"></div>
+    								<div id="dataShareMiddle">
+    									<div id="dataShareMiddleImg">
+    										<div class="dsObjContainer">
+    											<div id="dsLight"></div>
+    											<div id="dsObj">
+	    											<diV id="dsObjWrapper">
+	    												<div id="dsObjImg"></div>	
+	    											</diV>
+    											</div>
+    										</div>
+    									</div>
+    									<div class="lbValue1">分享<br/>内容</div>
+    									<div class="trigger lbValue2">分享<br/>方式</div>
+    									<div class="trigger lbValue3">输出<br/>性能</div>
+    								</div>
+    								<div id="dataShareRight">
+    									<div id="rightDiv1">标签数据：<b>6000个</b></div>
+    									<div id="rightDiv2">分析模型：<b>6000个</b></div>
+    									<div id="rightDiv3">查询并发量：<b>3000个/秒</b></div>
+    									<div id="rightDiv4">分析报表：<b>1000个</b></div>
+    								</div>
+    								<div id="dataShareBottom">
+    									<div id="dataShareBottomTop"></div>
+    									<div id="dataShareBottomDown">
+    										<div id="DownLeft">
+    											<div class="txt">接口输出</div>
+    											<div class="txt" style="padding-bottom: 4px;">分析报告</div>
+    											<div class="txt">营销策略</div>
+    										</div>
+    									</div>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+    	jQuery.noConflict();
+    	function showDataShareObject(){
+    		jQuery("#dsObjWrapper").css("width",0).css("left",242);
+    		jQuery("#dsObjImg").css("width",242).css("left",-242);
+    		jQuery("#dsObjWrapper").css("display","block").animate({left:0,width:242},2000);
+    		jQuery("#dsObjImg").css("display","block").animate({left:0,width:242},2000);
+
+    	}
+    	function showMainContent(){
+    		jQuery("#leftTip").css("width", "0").css("display", "block").animate({width: 184}, 2000, function() {
+    			jQuery("#collection2process").animate({width: 381}, 2500, function() {
+    				jQuery("#pro_objs").css("height", "0").css("display", "block").animate({height: 100}, 1000, function() {
+    					jQuery("#dsLight").css("height", "20").css("display", "block").animate({height: 230}, 2000);
+    					setTimeout("showDataShareObject()", 1900);
+    				});
+    				
+    			});
+    		});
+    	}
+    	jQuery(function(){
+    		showMainContent();
+    		//采集性能
+    		$("#dcPerform").hover(function(){
+    			$("#topTip").show("slow");
+    		},function(){
+    			$("#topTip").finish();
+    		});
+    		$("#topTip").mouseleave(function() {
+    			$("#topTip").hide("slow");
+    		});
+    		//采集方式
+    		$("#dcWay").hover(function() {
+    			$("#bottomTip").show("slow");		
+    		}, function() {
+    			$("#bottomTip").finish();
+    		});
+    		$("#bottomTip").mouseleave(function(){
+    			$("#bottomTip").hide("slow")
+    		})
+    		//处理能力
+    		$("#pro_perform").hover(function(){
+    			$("#pro_performs").show("slow");
+    		},function(){
+    			$("#pro_performs").finish();
+    		});
+    		$("#pro_performs").mouseleave(function(event) {
+    			$("#pro_performs").hide("slow");
+    		});
+    		//处理手段
+    		$("#pro_method").hover(function(){
+    			$("#pro_methods").show("slow");
+    		},function(){
+    			$("#pro_methods").finish();
+    		})
+    		$("#pro_methods").mouseleave(function(){
+    			$("#pro_methods").hide("slow");
+    		})
+    		//输出性能
+    		$(".lbValue3").hover(function(){
+    			$("#dataShareRight").show("slow");
+    		},function(){
+    			$("#dataShareRight").finish();
+    		});
+    		$("#dataShareRight").mouseleave(function(event) {
+    			$("#dataShareRight").hide("slow");
+    		});
+    		//分享方式
+    		$(".lbValue2").hover(function(){
+    			$("#DownLeft").show("slow");
+    		},function(){
+    			$("#DownLeft").finish();
+    		})
+    		$("#DownLeft").mouseleave(function(){
+    			$("#DownLeft").hide("slow");
+    		})
+    	})
+    </script>
+</body>
+</html>

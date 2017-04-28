@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/echarts.js"></script>
+	<script type="text/javascript" src="js/theme.js"></script>
+	<script data-require-id="echarts/chart/line" src="js/line.js" async=""></script>
+	<script data-require-id="echarts/chart/bar" src="js/bar.js" async=""></script>
+	<style type="text/css">
+	html,body{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+	BODY{
+		padding: 0px;
+		margin:0px;
+		background-color: #EEE;
+		font-size: 12px;
+		font-family: Microsoft YaHei;
+	}
+	body{
+		margin:0;
+		padding:0;
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+		background:url(img/bg.jpg) top center no-repeat;
+		font-size: 14px;
+		color:#797979;
+		font-family: "微软雅黑"
+	}
+
+	#divWrap{
+		width: 100%;
+		min-height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#Header {
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    width: 100%;
+	    height: 54px;
+	    background: url(img/navigate_backgroud.png) repeat;
+	    background-position: 0px 0px;
+	    box-shadow: 0px 0px 4px #999;
+	}
+	#NativeMenu{
+		line-height: 40px;
+		color: #FFFFFF;
+		position: absolute;
+		right: 300px;
+		top: 0px;
+	}
+	#divPageBody{
+		width: 100%;
+		margin-top:54px;
+	}
+	#divWithoutMenu{
+		width: 100%;
+		background: #9H9H9J;
+		border: 0px solid #DDD;
+		overflow: hidden;
+	}
+	.content-n{
+		width: 1188px;
+		margin:25px  auto;
+	}
+	.title-area{
+		height: 40px;
+		top: 0px;
+		color: #c7d1ef;
+	}
+	.index .title-area, .edit .title-area{
+		width: 1188px;
+		left: 0px;
+		position: static;
+	}
+	h2,h3{
+		margin: 0px;
+	}
+	.title-area h2{
+		font-size: 24px;
+		font-weight: bold;
+		width: 176px;
+		float: left;
+		padding-top: 8px;
+	}
+	.title-area p{
+		float: left;
+	}
+	.title-area span {
+	    padding: 0 10px;
+	}
+	.chart-area{
+		width: 1188px;
+		height: 576px;
+		border-radius: 3px;
+		background:rgba(63,84,129, 0.5);
+		padding: 0 0 0 20px;
+		margin:14px 0 60px 0;
+	}
+	.chart-area li{
+		width: 564px;
+		height: 278px;
+		float: left;
+		text-align: center;
+		border-radius: 3px;
+		margin-right: 20px;
+	}
+	.chart-area h3{
+		color: #bfc9e7;
+		font-size: 18px;
+		height: 50px;
+		padding-top: 16px;
+	}
+	</style>
+</head>
+<body style="">
+<div id="divWrap">
+	<div id="Header">
+		<div id="divHeaderOperator"></div>
+	</div>
+	<div id="NativeMenu"></div>
+	<div id="divPageBody" style="min-height: 525px;">
+		<div id="divWithoutMenu" style="display: block; min-height: 579px;">
+			<div class="content-n index">
+				<div class="title-area">
+					<h2>计算和存储能力</h2>
+					<p id="groupAndmachine">分组:<span style="font-size:16px;">11</span>组<span>|</span>机器台:<span style="font-size:16px;">106</span>台</p>
+				</div>
+				<ul class="chart-area clearfix">
+					<li>
+						<h3>CPU使用率(%)</h3>
+						<div style="position: relative;">
+							<div id="cpu01" style="height: 110px;"></div>
+							<div id="cpu02" style="height: 125px"></div>
+						</div>
+					</li>
+					<li>
+						<h3>内存使用率(%)</h3>
+						<div style="position: relative;">
+							<div id="memory01" style="height: 110px;"></div>
+							<div id="memory02" style="height: 125px"></div>
+						</div>
+					</li>
+					<li>
+						<h3>磁盘I/O速度(mb/s)</h3>
+						<div style="position:relative">
+							<div id="disc" style="height:235px;"></div>
+						</div>
+					</li>
+					<li>
+						<h3>网络综合指标(mb/s)</h3>
+						<div style="position:relative">
+							<div id="network" style="height:235px;"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery("#cpu01").css('width', screen.width / 2.5);
+	jQuery("#cpu02").css('width', screen.width / 2.5);
+	jQuery("#memory01").css('width', screen.width / 2.5);
+	jQuery("#memory02").css('width', screen.width / 2.5);
+	jQuery("#disc").css('width', screen.width / 2.5);
+	jQuery("#network").css('width', screen.width / 2.5);
+	//路径配置
+	require.config({
+		paths:{
+			echarts:'./dist'
+		}
+	});
+	var axisData=["0:0","0:04","0:08","0:12","0:16","0:20","0:24","0:28"];
+	var metricData = [13.92,5.81,5.64,7.9,10.97,3.18,3.59,5.1];
+	//top数据
+	var topData = ["0.0.0.0","0.0.0.1","0.0.0.2","0.0.0.3","0.0.0.3","0.0.0.3","0.0.0.3","0.0.0.3","0.0.0.3","0.0.0.3"];
+	var topMetricData = ['23','34','30','23','23','23','23','23','23','23'];
+	//
+	var axisData3 = ["0:0","0:1","0:2","0:3","0:4","0:5","0:6","0:7"];
+	var metricData3 = [16.78,17.32,17.9,16.78,17.32,17.9,16.78,17.32];
+	require(
+		[
+			'echarts',
+			'echarts/chart/line',
+			'echarts/chart/bar'
+		],
+		function(ec){
+			var myChart = ec.init(document.getElementById('cpu01'),e_dark);
+			var myChart2 = ec.init(document.getElementById('cpu02'),e_dark);
+			var myChart3 = ec.init(document.getElementById('memory01'));
+			var myChart4 = ec.init(document.getElementById('memory02'));
+			var myChart5 = ec.init(document.getElementById('disc'));
+			var myChart6 = ec.init(document.getElementById('network'));
+                option = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c} %'
+                            /* formatter: function (params) {
+                        //var res = params[0].name;
+                        var res =  params[0].seriesName +":"+ params[0].value;
+                        return res;
+                    } */
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 30
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: true
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : resultdata.axisDataList
+                        data: axisData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        //max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    //series : resultdata.serviceDataBeanList1
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    type: 'default'
+                                }
+                            }
+                        },
+                        data: metricData,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        }
+                    }]
+                };
+                option2 = {
+                    backgroundColor: 'transparent',
+                    title: {
+                        text: 'TOP 10',
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#cdcdcd'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c}'
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 40,
+                        x2: 55,
+                        y2: 25
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        position: 'bottom',
+                        boundaryGap: true,
+                        axisLabel: {
+                            show: true
+                        },
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : axisData
+                        data: topData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        max: 100,
+                        type: 'value',
+                        scale: true,
+                        // splitNumber: 4,  //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        /* axisLabel: {
+                            formatter: function (v) {
+                                return Math.round(v/10000) + ' 万'
+                            }
+                        }, */
+                        //axisLabel : v,
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    series: [{
+                        name: 'CPU',
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: function(params) {
+                                    // build a color map as your need.
+                                    var colorList = [
+                                        '#FE8463', '#FAD860', '#60C0DD', '#0084C6', '#D7504B', '#C6E579', '#26C0C0', '#F0805A', '#F4E001', '#B5C334', '#8B44D3', '#D344C7', '#A94544', '#FF5941', '#9BCA63'
+                                    ];
+                                    return colorList[params.dataIndex]
+                                },
+                                label: {
+                                    show: true,
+                                    position: 'top',
+                                    formatter: '{c}'
+                                }
+                            }
+                        },
+                        data: topMetricData,
+                        markPoint: {
+                            data: [{
+                                type: 'max',
+                                name: '最大值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#FE8463'
+                                    }
+                                }
+                            }, {
+                                type: 'min',
+                                name: '最小值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#9BCA63'
+                                    }
+                                }
+                            }]
+                        },
+                    }]
+                };
+                option3 = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c} %'
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 30
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : resultdata.axisDataList
+                        data: axisData3
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        // max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    //series : resultdata.serviceDataBeanList1
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        itemStyle: {
+                            normal: {
+                                areaStyle: {
+                                    type: 'default'
+                                }
+                            }
+                        },
+                        smooth: true,
+                        data: metricData3,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        }
+                    }]
+                };
+                option4 = {
+                    backgroundColor: 'transparent',
+                    title: {
+                        text: 'TOP 10',
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#cdcdcd'
+                        }
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c}'
+                    },
+                    calculable: true,
+                    grid: {
+                        x: 66,
+                        y: 40,
+                        x2: 55,
+                        y2: 25
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        position: 'bottom',
+                        boundaryGap: true,
+                        axisLabel: {
+                            show: true
+                        },
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : axisData
+                        data: topData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        max: 100,
+                        type: 'value',
+                        scale: true,
+                        //splitNumber: 4,  //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        /* axisLabel: {
+                            formatter: function (v) {
+                                return Math.round(v/10000) + ' 万'
+                            }
+                        }, */
+                        //axisLabel : v,
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} %'
+                        }
+                    }],
+                    //series : resultdata.serviceDataBeanList2
+                    series: [{
+                        name: '内存',
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: function(params) {
+                                    // build a color map as your need.
+                                    var colorList = [
+                                        '#FE8463', '#FAD860', '#60C0DD', '#0084C6', '#D7504B', '#C6E579', '#26C0C0', '#F0805A', '#F4E001', '#B5C334', '#8B44D3', '#D344C7', '#A94544', '#FF5941', '#9BCA63'
+                                    ];
+                                    return colorList[params.dataIndex]
+                                },
+                                label: {
+                                    show: true,
+                                    position: 'top',
+                                    formatter: '{c}'
+                                }
+                            }
+                        },
+                        data: topMetricData,
+                        smooth: true,
+                        markPoint: {
+                            data: [{
+                                type: 'max',
+                                name: '最大值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#FE8463'
+                                    }
+                                }
+                            }, {
+                                type: 'min',
+                                name: '最小值',
+                                itemStyle: {
+                                    normal: {
+                                        color: '#9BCA63'
+                                    }
+                                }
+                            }]
+                        },
+                    }]
+                };
+                option5 = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        axisPointer:{
+                        	crossStyle:{
+                        		type:'dotted'
+                        	}
+                        },
+                        formatter: '{b} : {c} M'
+                            /* formatter: function (params) {
+                                //var res = params[0].name;
+                                var res =  params[0].seriesName +":"+ params[0].value;
+                                return res;
+                            } */
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 40
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        //data : resultdata.axisDataList
+                        data: axisData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        //max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} M'
+                        }
+                    }],
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        //itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                        data: metricData,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        },
+                        smooth: true
+                    }]
+                };
+                option6 = {
+                    backgroundColor: 'transparent', //黑色背景
+                    tooltip: {
+                        trigger: 'axis',
+                        showDelay: 0,
+                        formatter: '{b} : {c} M'
+                    },
+                    calculable: false,
+                    grid: {
+                        x: 66,
+                        y: 10,
+                        x2: 55,
+                        y2: 40
+                    },
+                    xAxis: [{
+                        type: 'category',
+                        boundaryGap: false,
+                        axisTick: {
+                            onGap: false
+                        },
+                        splitLine: {
+                            show: false
+                        },
+                        data: axisData
+                    }],
+                    yAxis: [{
+                        min: 0,
+                        //max:100,
+                        type: 'value',
+                        scale: true,
+                        splitNumber: 4, //分成4段
+                        boundaryGap: [0.05, 0.05],
+                        splitArea: {
+                            show: true
+                        },
+                        axisLabel: {
+                            formatter: '{value} M'
+                        }
+                    }],
+                    series: [{
+                        name: '总量',
+                        type: 'line',
+                        data: metricData,
+                        markLine: {
+                            data: [{
+                                type: 'average',
+                                name: '平均值'
+                            }]
+                        },
+                        smooth: true
+                    }]
+                };
+			myChart.setOption(option);
+			myChart2.setOption(option2);
+			myChart3.setOption(option3);
+			myChart4.setOption(option4);
+			myChart5.setOption(option5);
+			myChart6.setOption(option6);
+		}
+	);
+});
+</script>
+</body>
+</html>
